@@ -1,0 +1,144 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
+<%@ taglib prefix="tiles" uri="/WEB-INF/struts-tiles.tld"%>
+<html>
+	<head>
+		<title>远程管理-文件上传</title>
+		<link href="resources/source/tablecloth.css" rel="stylesheet"
+			type="text/css" media="screen" />
+	</head>
+	<body style="text-align: center; background: #E6EAE9;">
+		<table cellspacing="0" cellpadding="0" style="width: 1000px;">
+			<tr>
+				<td colspan="2">
+					<tiles:insert page="../../page/view/topmenu.jsp" flush="false" />
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" style="width: 30%;">
+					<table cellspacing="0" cellpadding="0">
+						<tr>
+							<th colspan="3">
+								文件上传
+							</th>
+						</tr>
+
+						<tr>
+							<td>
+								<html:form action="atmids.do?method=getUploadId" method="post">
+									<tr>
+										<td style="width: 30%" align="left">
+											设备厂商：
+										</td>
+										<td>
+											<html:select property="macprovider" style="width:100%"
+												onchange="submit()">
+												<html:option value="">请选择...</html:option>
+												<logic:present name="atmcompany">
+													<logic:iterate id="tlr" name="atmcompany">
+														<html:option value="${tlr.atmid}">
+																${tlr.company }
+															</html:option>
+													</logic:iterate>
+												</logic:present>
+											</html:select>
+										</td>
+									</tr>
+								</html:form>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="3">
+								请选择需要上传的设备号
+							</td>
+						</tr>
+						<html:form action="upload.do" enctype="multipart/form-data">
+							<tr align="center">
+								<td colspan="3">
+									<html:select property="atmids" size="23" style="width:100%"
+										multiple="true" styleId="atmids">
+										<logic:notEmpty name="atmid">
+											<html:optionsCollection name="atmid" value="atmid"
+												label="allstatus" />
+										</logic:notEmpty>
+									</html:select>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<html:file property="file" styleId="file" />
+								</td>
+								<td>
+									<!--<html:button property="" value="程序更新" onclick="upload('1');" />
+										<html:button property="" value="广告更新" onclick="upload('2');" />-->
+									<html:button property="" value="更新驻留" onclick="upload('3');" />
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									远程路径:
+								</td>
+								<td>
+									<html:text property="remPath" />
+								</td>
+								<td>
+									<html:button property="" value="文件上传" onclick="upload('4');" />
+								</td>
+							</tr>
+
+						</html:form>
+					</table>
+				</td>
+				<td valign="top">
+					<logic:present name="backList">
+						<table border="0">
+							<tr style="background-color: #00AA7B;">
+								<td>
+									机器号
+								</td>
+								<td>
+									上传状态
+								</td>
+							</tr>
+							<logic:iterate id="tlr" name="backList">
+								<tr>
+									<td>
+										<bean:write name="tlr" property="atmid" />
+									</td>
+									<td>
+										<logic:equal value="1" name="tlr" property="backStatus">
+											<font color="#00DB00">成功</font>
+										</logic:equal>
+										<logic:notEqual value="1" name="tlr" property="backStatus">
+											<font color="#FF0000">失败</font>
+										</logic:notEqual>
+									</td>
+								</tr>
+							</logic:iterate>
+						</table>
+					</logic:present>
+				</td>
+			</tr>
+		</table>
+		<input type="hidden" id="hidden" value="3" />
+	</body>
+</html>
+<script type="text/javascript">
+  function upload(action){
+    if(document.getElementById("atmids").value==""){
+      	alert("请选择ATM编号！");
+      	return false;
+    }
+    else if(document.getElementById("file").value=="")
+    {
+      	alert("请选择上传文件！");
+    	return false;
+    }
+    document.forms[1].action="upload.do?method="+action;
+    document.forms[1].submit();
+   }
+</script>

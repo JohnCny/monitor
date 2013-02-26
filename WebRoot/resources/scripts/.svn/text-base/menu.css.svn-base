@@ -1,0 +1,18 @@
+#menu_out {
+	width: 100%;
+	padding-left: 4px;
+	margin-left: auto;
+	margin-right: auto;
+	background: url(resources/source/menu/menu_left.gif) no-repeat left top;
+}
+
+#menu_in {
+	background: url(resources/source/menu/menu_right.gif) no-repeat right
+		top;
+	padding-right: 4px;
+}
+
+#menu {
+	background: url(resources/source/menu/menu_bg.gif) repeat-x;
+	height: 73px;
+}

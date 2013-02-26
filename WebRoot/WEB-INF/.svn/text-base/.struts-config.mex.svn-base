@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/index.do" location="2150,1850" dimension="79,70" />
+  <StrutsActivity path="/user.do" location="50,50" dimension="192,104" />
+  <StrutsActivity path="/atmstatus.do" location="350,50" dimension="217,104" />
+  <StrutsActivity path="/tradestatus.do" location="1550,1850" dimension="217,104" />
+  <StrutsActivity path="/atmstatustitle.do" location="650,50" dimension="217,104" />
+  <StrutsActivity path="/atmcompany.do" location="950,50" dimension="243,104" />
+  <StrutsActivity path="/atmids.do" location="1250,50" dimension="200,104" />
+  <StrutsActivity path="/reportxls.do" location="1550,50" dimension="194,104" />
+  <StrutsActivity path="/reportxls2.do" location="1850,50" dimension="201,104" />
+  <StrutsActivity path="/atmstatereportxls.do" location="2150,50" dimension="246,104" />
+  <StrutsActivity path="/upload.do" location="50,250" dimension="208,104" />
+  <StrutsActivity path="/download.do" location="350,250" dimension="224,104" />
+  <StrutsActivity path="/snapShot.do" location="650,250" dimension="219,104" />
+  <StrutsActivity path="/reboot.do" location="950,250" dimension="208,104" />
+  <StrutsActivity path="/atmpconfig.do" location="1250,250" dimension="234,104" />
+  <StrutsActivity path="/atmsetconfig.do" location="50,2250" dimension="232,104" />
+  <StrutsActivity path="/atmcinfoconfig.do" location="1850,250" dimension="255,104" />
+  <StrutsActivity path="/cash.do" location="50,450" dimension="193,104" />
+  <StrutsActivity path="/cashReport.do" location="350,450" dimension="262,104" />
+  <StrutsActivity path="/check.do" location="950,450" dimension="200,104" />
+  <StrutsActivity path="/reportCheck.do" location="1250,450" dimension="240,104" />
+  <StrutsActivity path="/statiform.do" location="1550,450" dimension="190,104" />
+  <StrutsActivity path="/statiform2.do" location="1850,450" dimension="197,104" />
+  <StrutsActivity path="/smsconfig.do" location="2150,450" dimension="189,104" />
+  <StrutsActivity path="/smsstatusconfig.do" location="50,650" dimension="227,104" />
+  <StrutsActivity path="/smsinfo.do" location="350,650" dimension="212,104" />
+  <StrutsActivity path="/infoconfig.do" location="650,650" dimension="226,104" />
+  <StrutsActivity path="/page/index/jylpm_.jsp" location="350,2050" dimension="164,53" />
+  <StrutsActivity path="/page/index/index.jsp" location="2450,350" dimension="159,53" />
+  <StrutsActivity path="/page/index/qtjylzst.jsp" location="1850,1850" dimension="168,53" />
+  <StrutsActivity path="/page/index/sbzttj.jsp" location="1250,1850" dimension="159,53" />
+  <StrutsActivity path="/page/user/modifyuser.jsp" location="950,650" dimension="187,53" />
+  <StrutsActivity path="/page/view/nopower.jsp" location="1550,650" dimension="174,53" />
+  <StrutsActivity path="/page/login.jsp" location="1850,650" dimension="121,53" />
+  <StrutsActivity path="/page/cash/main.jsp" location="350,850" dimension="151,53" />
+  <StrutsActivity path="/page/config/user.jsp" location="1550,2050" dimension="158,53" />
+  <StrutsActivity path="/page/monitor/atmstatusicon.jsp" location="2150,850" dimension="223,53" />
+  <StrutsActivity path="/page/monitor/atmstatusinfo.jsp" location="50,1050" dimension="221,53" />
+  <StrutsActivity path="/page/monitor/atmstatuslist.jsp" location="350,1050" dimension="215,53" />
+  <StrutsActivity path="/page/monitor/monitor.jsp" location="2450,1450" dimension="189,53" />
+  <StrutsActivity path="/page/remote/download.jsp" location="650,1050" dimension="197,53" />
+  <StrutsActivity path="/page/remote/upload.jsp" location="950,1050" dimension="180,53" />
+  <StrutsActivity path="/page/view/close.jsp" location="1250,1050" dimension="152,53" />
+  <StrutsActivity path="/reoprt" location="1550,1050" dimension="74,53" />
+  <StrutsActivity path="/page/sms/smsset.jsp" location="1850,1050" dimension="160,53" />
+  <StrutsActivity path="/page/statistics/trade.jsp" location="950,2050" dimension="177,53" />
+  <StrutsActivity path="/page/monitor/snapShot.jsp" location="50,1250" dimension="197,53" />
+  <StrutsActivity path="/page/statistics/cash.jsp" location="2450,1650" dimension="172,53" />
+  <StrutsActivity path="/page/statistics/run.jsp" location="2450,550" dimension="165,53" />
+  <StrutsActivity path="/page/remote/reboot.jsp" location="950,1250" dimension="179,53" />
+  <StrutsActivity path="/page/check/check.jsp" location="350,1450" dimension="163,53" />
+  <StrutsActivity path="/page/config/atmpconfig.jsp" location="1550,1250" dimension="199,53" />
+  <StrutsActivity path="/atmcconfig.do" location="350,2250" dimension="131,87" />
+  <StrutsActivity path="/page/config/server.jsp" location="1850,2050" dimension="169,53" />
+  <StrutsActivity path="/page/config/device.jsp" location="2150,2050" dimension="170,53" />
+  <StrutsActivity path="/page/view/defaultmain.jsp" location="650,1450" dimension="190,53" />
+  <StrutsActivity path="/page/statistics/statiform.jsp" location="950,1450" dimension="198,53" />
+  <StrutsActivity path="/page/statistics/statiform2.jsp" location="1250,1450" dimension="205,53" />
+  <StrutsActivity path="/page/sms/modifysms.jsp" location="1550,1450" dimension="183,53" />
+  <StrutsActivity path="/page/sms/smsinfoconfig.jsp" location="1850,1450" dimension="201,53" />
+  <StrutsActivity path="/page/sms/smsconfig.jsp" location="2150,1450" dimension="179,53" />
+  <StrutsActivity path="/page/sms/smstestsend.jsp" location="50,1650" dimension="192,53" />
+  <StrutsActivity path="/page/sms/smsinfo.jsp" location="350,1650" dimension="165,53" />
+  <StrutsActivity path="/page/config/settype.jsp" location="650,1650" dimension="175,53" />
+  <StrutsActivity path="/page/config/modifycompany.jsp" location="950,1650" dimension="226,53" />
+  <StrutsActivity path="/page/config/setrun.jsp" location="1550,1650" dimension="169,53" />
+  <StrutsActivity path="/page/config/modifyrun.jsp" location="50,1850" dimension="192,53" />
+  <StrutsActivity path="/page/config/setcompany.jsp" location="350,1850" dimension="203,53" />
+  <StrutsActivity path="/page/config/modifytype.jsp" location="650,1850" dimension="198,53" />
+  <StrutsActivity path="/page/config/message.jsp" location="2450,2050" dimension="185,53" />
+  <StrutsActivity path="/page/statistics/main.jsp" location="1250,650" dimension="174,53" />
+  <StrutsActivity path="/page/sms/main.jsp" location="2150,650" dimension="148,53" />
+  <StrutsActivity path="/page/config/main.jsp" location="50,850" dimension="161,53" />
+  <StrutsActivity path="/page/check/main.jsp" location="650,850" dimension="158,53" />
+  <StrutsActivity path="/page/remote/main.jsp" location="1550,850" dimension="167,53" />
+  <StrutsActivity path="/page/config/infotype.jsp" location="1250,1650" dimension="180,53" />
+  <StrutsActivity path="/page/config/inforun.jsp" location="2150,1650" dimension="174,53" />
+  <StrutsActivity path="/atmcconfig" location="1550,250" dimension="232,104" />
+  <StrutsActivity path="/page/config/atmcconfig.jsp" location="1850,1250" dimension="197,53" />
+  <StrutsActivity path="/page/config/atmcinfoconfig.jsp" location="2150,1250" dimension="219,53" />
+  <StrutsActivity path="/page/config/infocompany.jsp" location="1850,1650" dimension="208,53" />
+  <StrutsActivity path="/page/user/userlist.jsp" location="1850,850" dimension="163,53" />
+  <StrutsActivity path="/page/statistics/changetitle.jsp" location="2150,1050" dimension="209,53" />
+  <StrutsActivity path="/page/statistics/changetitle2.jsp" location="650,1250" dimension="216,53" />
+  <StrutsActivity path="/page/check/changetitle.jsp" location="1250,1250" dimension="193,53" />
+  <StrutsActivity path="/page/cash/moneymanager.jsp" location="50,1450" dimension="214,53" />
+  <StrutsActivity path="/page/cash/changetitle.jsp" location="350,1250" dimension="186,53" />
+  <StrutsActivity path="/page/view/main.jsp" location="950,850" dimension="150,53" />
+  <StrutsActivity path="/page/monitor/main.jsp" location="1250,850" dimension="171,53" />
+  <StrutsActivity path="/page/index/jylpm.jsp" location="50,2050" dimension="159,53" />
+  <StrutsActivity path="/page/index/main.jsp" location="950,1850" dimension="156,53" />
+  <StrutsActivity path="/page/index/.jsp" location="2450,850" dimension="128,53" />
+  <StrutsActivity path="/page/index/mail.jsp" location="2450,1050" dimension="152,53" />
+  <StrutsActivity path="/page/index/m.jsp" location="2450,1250" dimension="139,53" />
+  <StrutsActivity path="/page/cash/cash.jsp" location="2450,1850" dimension="149,53" />
+  <StrutsActivity path="/page//cash.jsp" location="650,2050" dimension="123,53" />
+  <StrutsActivity path="/page/config/userlist.jsp" location="1250,2050" dimension="174,53" />
+  <StrutsTransition id="/atmpconfig.do,setsuccess,/atmpconfig.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1368,250" />
+      <AbsolutePoint location="1368,247" />
+      <AbsolutePoint location="1487,247" />
+      <AbsolutePoint location="1487,302" />
+      <AbsolutePoint location="1484,302" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmids.do,rsuccess,/page/remote/reboot.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1450,72" />
+      <AbsolutePoint location="1535,72" />
+      <AbsolutePoint location="1535,-55" />
+      <AbsolutePoint location="2684,-55" />
+      <AbsolutePoint location="2684,1208" />
+      <AbsolutePoint location="1039,1208" />
+      <AbsolutePoint location="1039,1250" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmcinfoconfig.do,setsuccess,/atmcconfig.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2105,317" />
+      <AbsolutePoint location="2766,317" />
+      <AbsolutePoint location="2766,2293" />
+      <AbsolutePoint location="481,2293" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/smsstatusconfig.do,setsuccess,/smsstatusconfig.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="163,650" />
+      <AbsolutePoint location="163,639" />
+      <AbsolutePoint location="296,639" />
+      <AbsolutePoint location="296,702" />
+      <AbsolutePoint location="277,702" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/smsconfig.do,success,/page/sms/smsinfoconfig.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2150,524" />
+      <AbsolutePoint location="2095,524" />
+      <AbsolutePoint location="2095,1476" />
+      <AbsolutePoint location="2051,1476" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/user.do,sasuccess,/atmids.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="176,154" />
+      <AbsolutePoint location="176,169" />
+      <AbsolutePoint location="-160,169" />
+      <AbsolutePoint location="-160,-235" />
+      <AbsolutePoint location="1268,-235" />
+      <AbsolutePoint location="1268,50" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmstatus.do,byidsuccess,/page/monitor/atmstatusinfo.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="456,154" />
+      <AbsolutePoint location="456,247" />
+      <AbsolutePoint location="-55,247" />
+      <AbsolutePoint location="-55,1076" />
+      <AbsolutePoint location="50,1076" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmcompany.do,successu,/page/remote/upload.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,102" />
+      <AbsolutePoint location="872,102" />
+      <AbsolutePoint location="872,501" />
+      <AbsolutePoint location="945,501" />
+      <AbsolutePoint location="945,1076" />
+      <AbsolutePoint location="950,1076" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/infoconfig.do,success,/page/config/message.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="763,650" />
+      <AbsolutePoint location="763,640" />
+      <AbsolutePoint location="2780,640" />
+      <AbsolutePoint location="2780,2076" />
+      <AbsolutePoint location="2635,2076" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmids.do,tsuccess,/page/statistics/trade.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1302,154" />
+      <AbsolutePoint location="1302,169" />
+      <AbsolutePoint location="891,169" />
+      <AbsolutePoint location="891,2076" />
+      <AbsolutePoint location="950,2076" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/user.do,loginerror,/page/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="116,154" />
+      <AbsolutePoint location="116,229" />
+      <AbsolutePoint location="1827,229" />
+      <AbsolutePoint location="1827,676" />
+      <AbsolutePoint location="1850,676" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmids.do,close,/page/view/close.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1410,154" />
+      <AbsolutePoint location="1410,169" />
+      <AbsolutePoint location="2714,169" />
+      <AbsolutePoint location="2714,918" />
+      <AbsolutePoint location="1326,918" />
+      <AbsolutePoint location="1326,1050" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/download.do,success,/atmids.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="462,250" />
+      <AbsolutePoint location="462,247" />
+      <AbsolutePoint location="1350,247" />
+      <AbsolutePoint location="1350,154" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/user.do,success,/page/config/user.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="56,50" />
+      <AbsolutePoint location="56,35" />
+      <AbsolutePoint location="35,35" />
+      <AbsolutePoint location="35,2178" />
+      <AbsolutePoint location="1629,2178" />
+      <AbsolutePoint location="1629,2103" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/tradestatus.do,tradestatecategoryImgsuccess,/page/index/qtjylzst.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1767,1888" />
+      <AbsolutePoint location="1850,1888" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/user.do,rmsuccess,/atmids.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="146,50" />
+      <AbsolutePoint location="146,-310" />
+      <AbsolutePoint location="1440,-310" />
+      <AbsolutePoint location="1440,50" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/smsinfo.do,success,/page/sms/smsinfo.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="516,754" />
+      <AbsolutePoint location="516,918" />
+      <AbsolutePoint location="-25,918" />
+      <AbsolutePoint location="-25,1548" />
+      <AbsolutePoint location="432,1548" />
+      <AbsolutePoint location="432,1650" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/user.do,cmsuccess,/page/cash/main.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="50,72" />
+      <AbsolutePoint location="-85,72" />
+      <AbsolutePoint location="-85,978" />
+      <AbsolutePoint location="425,978" />
+      <AbsolutePoint location="425,903" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmcompany.do,close,/page/view/close.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1071,102" />
+      <AbsolutePoint location="1071,1076" />
+      <AbsolutePoint location="1326,1076" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmids.do,yxsuccess,/page/statistics/run.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1320,50" />
+      <AbsolutePoint location="1320,-25" />
+      <AbsolutePoint location="589,-25" />
+      <AbsolutePoint location="589,418" />
+      <AbsolutePoint location="2532,418" />
+      <AbsolutePoint location="2532,550" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmsetconfig.do,success,/page/config/server.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="282,2352" />
+      <AbsolutePoint location="1934,2352" />
+      <AbsolutePoint location="1934,2103" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmids.do,usuccess,/page/remote/upload.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1320,154" />
+      <AbsolutePoint location="1320,199" />
+      <AbsolutePoint location="1173,199" />
+      <AbsolutePoint location="1173,1076" />
+      <AbsolutePoint location="1130,1076" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmsetconfig.do,setsuccess,/atmcconfig.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="282,2302" />
+      <AbsolutePoint location="350,2302" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/statiform.do,success,/page/statistics/statiform.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1655,554" />
+      <AbsolutePoint location="1655,593" />
+      <AbsolutePoint location="1140,593" />
+      <AbsolutePoint location="1140,1450" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/smsinfo.do,startsmssend,/smsinfo.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="470,650" />
+      <AbsolutePoint location="470,640" />
+      <AbsolutePoint location="572,640" />
+      <AbsolutePoint location="572,666" />
+      <AbsolutePoint location="562,666" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/smsconfig.do,typesuccess,/page/sms/smsset.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2150,502" />
+      <AbsolutePoint location="2073,502" />
+      <AbsolutePoint location="2073,1076" />
+      <AbsolutePoint location="2010,1076" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmstatustitle.do,allsuccesslist,/page/monitor/monitor.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="650,96" />
+      <AbsolutePoint location="570,96" />
+      <AbsolutePoint location="570,-25" />
+      <AbsolutePoint location="345,-25" />
+      <AbsolutePoint location="345,53" />
+      <AbsolutePoint location="273,53" />
+      <AbsolutePoint location="273,397" />
+      <AbsolutePoint location="2441,397" />
+      <AbsolutePoint location="2441,1476" />
+      <AbsolutePoint location="2450,1476" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/user.do,setsuccess,/user.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="176,50" />
+      <AbsolutePoint location="176,-25" />
+      <AbsolutePoint location="327,-25" />
+      <AbsolutePoint location="327,72" />
+      <AbsolutePoint location="242,72" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/smsinfo.do,smsstatus,/page/sms/smstestsend.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="546,754" />
+      <AbsolutePoint location="546,1008" />
+      <AbsolutePoint location="5,1008" />
+      <AbsolutePoint location="5,1676" />
+      <AbsolutePoint location="50,1676" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmids.do,dsuccess,/page/remote/download.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1250,84" />
+      <AbsolutePoint location="1208,84" />
+      <AbsolutePoint location="1208,1178" />
+      <AbsolutePoint location="748,1178" />
+      <AbsolutePoint location="748,1103" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/user.do,nopower,/page/view/nopower.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="242,102" />
+      <AbsolutePoint location="297,102" />
+      <AbsolutePoint location="297,569" />
+      <AbsolutePoint location="1637,569" />
+      <AbsolutePoint location="1637,650" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/user.do,logoutsuccess,/page/login.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="50,102" />
+      <AbsolutePoint location="-25,102" />
+      <AbsolutePoint location="-25,618" />
+      <AbsolutePoint location="1910,618" />
+      <AbsolutePoint location="1910,650" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmids.do,checksuccess,/page/check/check.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1250,102" />
+      <AbsolutePoint location="1230,102" />
+      <AbsolutePoint location="1230,1380" />
+      <AbsolutePoint location="431,1380" />
+      <AbsolutePoint location="431,1450" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/smsconfig.do,bymobliesuccess,/page/sms/modifysms.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2244,554" />
+      <AbsolutePoint location="2244,569" />
+      <AbsolutePoint location="1764,569" />
+      <AbsolutePoint location="1764,1476" />
+      <AbsolutePoint location="1733,1476" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/index.do,tradestatecategoryImgsuccess,/page/index/qtjylzst.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2150,1885" />
+      <AbsolutePoint location="2018,1885" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmids.do,smssuccess,/page/sms/smsset.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1368,154" />
+      <AbsolutePoint location="1368,199" />
+      <AbsolutePoint location="1797,199" />
+      <AbsolutePoint location="1797,1076" />
+      <AbsolutePoint location="1850,1076" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmcinfoconfig.do,success,/page/config/device.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2105,331" />
+      <AbsolutePoint location="2622,331" />
+      <AbsolutePoint location="2622,1338" />
+      <AbsolutePoint location="2350,1338" />
+      <AbsolutePoint location="2350,2076" />
+      <AbsolutePoint location="2320,2076" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/user.do,byusernamesuccess,/page/user/modifyuser.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="146,154" />
+      <AbsolutePoint location="146,199" />
+      <AbsolutePoint location="921,199" />
+      <AbsolutePoint location="921,676" />
+      <AbsolutePoint location="950,676" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/reboot.do,success,/atmids.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1158,302" />
+      <AbsolutePoint location="1246,302" />
+      <AbsolutePoint location="1246,124" />
+      <AbsolutePoint location="1250,124" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/snapShot.do,success,/page/monitor/snapShot.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="759,354" />
+      <AbsolutePoint location="759,442" />
+      <AbsolutePoint location="-67,442" />
+      <AbsolutePoint location="-67,1276" />
+      <AbsolutePoint location="50,1276" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmstatus.do,allsuccesslist,/page/monitor/atmstatuslist.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="350,84" />
+      <AbsolutePoint location="267,84" />
+      <AbsolutePoint location="267,501" />
+      <AbsolutePoint location="345,501" />
+      <AbsolutePoint location="345,1076" />
+      <AbsolutePoint location="350,1076" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/infoconfig.do,resuccess,/page/config/setrun.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="793,754" />
+      <AbsolutePoint location="793,829" />
+      <AbsolutePoint location="1827,829" />
+      <AbsolutePoint location="1827,1676" />
+      <AbsolutePoint location="1719,1676" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/user.do,umsuccess,/smsstatusconfig.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="86,154" />
+      <AbsolutePoint location="86,199" />
+      <AbsolutePoint location="-235,199" />
+      <AbsolutePoint location="-235,702" />
+      <AbsolutePoint location="50,702" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/index.do,indexinfosuccess,/page/index/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2229,1863" />
+      <AbsolutePoint location="2380,1863" />
+      <AbsolutePoint location="2380,375" />
+      <AbsolutePoint location="2450,375" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmids.do,csuccess,/page/statistics/cash.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1380,50" />
+      <AbsolutePoint location="1380,-25" />
+      <AbsolutePoint location="2744,-25" />
+      <AbsolutePoint location="2744,1676" />
+      <AbsolutePoint location="2622,1676" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/smsinfo.do,testsmssend,/smsinfo.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="456,650" />
+      <AbsolutePoint location="456,591" />
+      <AbsolutePoint location="586,591" />
+      <AbsolutePoint location="586,680" />
+      <AbsolutePoint location="562,680" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmstatus.do,setaddresssuccess,/atmcinfoconfig.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="350,102" />
+      <AbsolutePoint location="345,102" />
+      <AbsolutePoint location="345,391" />
+      <AbsolutePoint location="1977,391" />
+      <AbsolutePoint location="1977,354" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/check.do,success,/page/check/check.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1146,554" />
+      <AbsolutePoint location="1146,1420" />
+      <AbsolutePoint location="441,1420" />
+      <AbsolutePoint location="441,1450" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/infoconfig.do,cesuccess,/page/config/setcompany.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="763,754" />
+      <AbsolutePoint location="763,829" />
+      <AbsolutePoint location="327,829" />
+      <AbsolutePoint location="327,1876" />
+      <AbsolutePoint location="350,1876" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/infoconfig.do,existerror,/infoconfig.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="763,702" />
+      <AbsolutePoint location="763,635" />
+      <AbsolutePoint location="635,635" />
+      <AbsolutePoint location="635,702" />
+      <AbsolutePoint location="763,702" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/user.do,scsuccess,/user.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="146,102" />
+      <AbsolutePoint location="146,102" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/statiform2.do,success,/page/statistics/statiform2.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2020,554" />
+      <AbsolutePoint location="2020,1014" />
+      <AbsolutePoint location="1511,1014" />
+      <AbsolutePoint location="1511,1476" />
+      <AbsolutePoint location="1455,1476" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/smsconfig.do,setsuccess,/smsstatusconfig.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2244,502" />
+      <AbsolutePoint location="163,702" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/user.do,emsuccess,/atmstatustitle.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="236,50" />
+      <AbsolutePoint location="236,35" />
+      <AbsolutePoint location="758,35" />
+      <AbsolutePoint location="758,50" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/infoconfig.do,cmsuccess,/page/config/modifycompany.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="876,748" />
+      <AbsolutePoint location="921,748" />
+      <AbsolutePoint location="921,1676" />
+      <AbsolutePoint location="950,1676" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/user.do,ctsuccess,/atmids.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="86,50" />
+      <AbsolutePoint location="86,-160" />
+      <AbsolutePoint location="1350,-160" />
+      <AbsolutePoint location="1350,50" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmstatus.do,allsuccessicon,/page/monitor/atmstatusicon.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="567,102" />
+      <AbsolutePoint location="645,102" />
+      <AbsolutePoint location="645,948" />
+      <AbsolutePoint location="2261,948" />
+      <AbsolutePoint location="2261,903" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/infoconfig.do,rmsuccess,/page/config/modifyrun.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="733,754" />
+      <AbsolutePoint location="733,778" />
+      <AbsolutePoint location="297,778" />
+      <AbsolutePoint location="297,1876" />
+      <AbsolutePoint location="242,1876" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/infoconfig.do,rsuccess,/infoconfig.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="763,702" />
+      <AbsolutePoint location="763,635" />
+      <AbsolutePoint location="635,635" />
+      <AbsolutePoint location="635,702" />
+      <AbsolutePoint location="763,702" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/user.do,loginsuccess,/index.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="116,50" />
+      <AbsolutePoint location="116,-85" />
+      <AbsolutePoint location="2411,-85" />
+      <AbsolutePoint location="2411,1885" />
+      <AbsolutePoint location="2229,1885" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/statiform2.do,fault,/page/view/defaultmain.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2034,554" />
+      <AbsolutePoint location="2034,1230" />
+      <AbsolutePoint location="560,1230" />
+      <AbsolutePoint location="560,1476" />
+      <AbsolutePoint location="650,1476" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/cash.do,success,/page/statistics/cash.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="50,502" />
+      <AbsolutePoint location="-49,502" />
+      <AbsolutePoint location="-49,1620" />
+      <AbsolutePoint location="2536,1620" />
+      <AbsolutePoint location="2536,1650" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/infoconfig.do,tesuccess,/page/config/settype.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="650,702" />
+      <AbsolutePoint location="580,702" />
+      <AbsolutePoint location="580,1676" />
+      <AbsolutePoint location="650,1676" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/statiform.do,fault,/page/view/defaultmain.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1731,554" />
+      <AbsolutePoint location="1731,1154" />
+      <AbsolutePoint location="543,1154" />
+      <AbsolutePoint location="543,1490" />
+      <AbsolutePoint location="650,1490" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmstatustitle.do,allsuccessicon,/page/monitor/monitor.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="650,108" />
+      <AbsolutePoint location="607,108" />
+      <AbsolutePoint location="607,363" />
+      <AbsolutePoint location="2435,363" />
+      <AbsolutePoint location="2435,1482" />
+      <AbsolutePoint location="2450,1482" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmpconfig.do,success,/page/config/atmpconfig.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1367,354" />
+      <AbsolutePoint location="1367,440" />
+      <AbsolutePoint location="2142,440" />
+      <AbsolutePoint location="2142,984" />
+      <AbsolutePoint location="1649,984" />
+      <AbsolutePoint location="1649,1250" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/infoconfig.do,csuccess,/infoconfig.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="763,702" />
+      <AbsolutePoint location="763,702" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/index.do,atmstatecategoryImgsuccess,/page/index/sbzttj.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2189,1850" />
+      <AbsolutePoint location="2189,1778" />
+      <AbsolutePoint location="1329,1778" />
+      <AbsolutePoint location="1329,1850" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/infoconfig.do,tmsuccess,/page/config/modifytype.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="823,754" />
+      <AbsolutePoint location="823,1008" />
+      <AbsolutePoint location="627,1008" />
+      <AbsolutePoint location="627,1876" />
+      <AbsolutePoint location="650,1876" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmcompany.do,successd,/page/remote/download.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1193,134" />
+      <AbsolutePoint location="1240,134" />
+      <AbsolutePoint location="1240,918" />
+      <AbsolutePoint location="748,918" />
+      <AbsolutePoint location="748,1050" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmids.do,reportsuccess,/reoprt,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1450,102" />
+      <AbsolutePoint location="1535,102" />
+      <AbsolutePoint location="1535,1076" />
+      <AbsolutePoint location="1550,1076" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/infoconfig.do,tsuccess,/infoconfig.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="763,702" />
+      <AbsolutePoint location="763,635" />
+      <AbsolutePoint location="635,635" />
+      <AbsolutePoint location="635,702" />
+      <AbsolutePoint location="763,702" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/smsstatusconfig.do,success,/page/sms/smsconfig.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="218,754" />
+      <AbsolutePoint location="218,1030" />
+      <AbsolutePoint location="2126,1030" />
+      <AbsolutePoint location="2126,1476" />
+      <AbsolutePoint location="2150,1476" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/upload.do,success,/atmids.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="154,354" />
+      <AbsolutePoint location="154,375" />
+      <AbsolutePoint location="943,375" />
+      <AbsolutePoint location="943,41" />
+      <AbsolutePoint location="1298,41" />
+      <AbsolutePoint location="1298,50" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/atmids.do,snapShotsuccess,/page/monitor/snapShot.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1410,50" />
+      <AbsolutePoint location="1410,35" />
+      <AbsolutePoint location="2654,35" />
+      <AbsolutePoint location="2654,1118" />
+      <AbsolutePoint location="148,1118" />
+      <AbsolutePoint location="148,1250" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/index.do,tradestatecategorysuccess,/page/index/jylpm_.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2189,1920" />
+      <AbsolutePoint location="2189,1999" />
+      <AbsolutePoint location="432,1999" />
+      <AbsolutePoint location="432,2050" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+

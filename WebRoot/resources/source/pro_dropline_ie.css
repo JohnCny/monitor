@@ -1,0 +1,18 @@
+.nav UL {
+	DISPLAY: inline-block
+}
+.nav UL {
+	DISPLAY: inline
+}
+.nav UL LI {
+	FLOAT: left
+}
+.nav {
+	TEXT-ALIGN: center
+}
+.nav .select A:hover B {
+	FLOAT: none
+}
+.nav .select LI:hover A B {
+	FLOAT: none
+}

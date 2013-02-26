@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/u7u8u9ui.monitor/!svn/ver/11/monitor/src/cn/sh/ae/access
+END
+AtmpAccess.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/access/AtmpAccess.java
+END
+AtmcAccess.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/access/AtmcAccess.java
+END
+JNDIAccess.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/access/JNDIAccess.java
+END
+ConnectionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/u7u8u9ui.monitor/!svn/ver/11/monitor/src/cn/sh/ae/access/ConnectionManager.java
+END
+AtmpDataAccess.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/access/AtmpDataAccess.java
+END

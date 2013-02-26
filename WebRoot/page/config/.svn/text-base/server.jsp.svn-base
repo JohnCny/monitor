@@ -1,0 +1,433 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
+<%@ taglib prefix="tiles" uri="/WEB-INF/struts-tiles.tld"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<base href="<%=basePath%>">
+		<title>系统管理-服务管理</title>
+		<link href="resources/source/tablecloth.css" rel="stylesheet"
+			type="text/css" media="screen" />
+		<script type="text/javascript" src="resources/scripts/jquery-1.6.js"></script>
+
+		<script type="text/javascript">
+$(document).ready(function(){
+      $("#atmcset").click(function(){
+            $.ajax({
+                 url:'atmsetconfig.do?method=setAtmc', 
+                 type: 'post',
+                 cache:false,
+                 data: $('#form1').serialize(),
+                 timeout: 2000,
+                 error: function(){
+                    alert('错误');
+                 },
+                success: function(json){
+                	alert("保存成功!");
+                }
+         });
+     });
+     
+     $("#atmpset").click(function(){
+            $.ajax({
+                 url:'atmsetconfig.do?method=setAtmp', 
+                 type: 'post',
+                 cache:false,
+                 data: $('#form2').serialize(),
+                 timeout: 2000,
+                 error: function(){
+                    alert('错误');
+                 },
+                success: function(json){
+                	alert("保存成功!");
+                }
+         });
+     });
+    });
+		</script>
+	</head>
+
+	<body style="text-align: center; background: #E6EAE9;">
+		<table cellspacing="0" cellpadding="0" style="width: 1000px;">
+			<tr>
+				<td colspan="2">
+					<tiles:insert page="../../page/view/topmenu.jsp" flush="false" />
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" width="50%">
+					<table cellspacing="0" cellpadding="0">
+						<html:form action="atmsetconfig.do?method=setAtmc" method="post"
+							styleId="form1">
+							<logic:present name="remotecontrolstatus">
+								<tr>
+									<th colspan="2">
+										客户端管理
+									</th>
+								</tr>
+								<tr>
+									<td style="width: 50%">
+										远程上传：
+									</td>
+									<td>
+										<html:select property="uploadstatus"
+											value="${remotecontrolstatus.uploadstatus}"
+											style="width:100%;">
+											<html:option value="0">关闭</html:option>
+											<html:option value="1">开启</html:option>
+										</html:select>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										远程下载：
+									</td>
+									<td>
+										<html:select property="downloadstatus" style="width:100%;"
+											value="${remotecontrolstatus.downloadstatus}">
+											<html:option value="0">关闭</html:option>
+											<html:option value="1">开启</html:option>
+										</html:select>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										远程执行：
+									</td>
+									<td>
+										<html:select property="rebootstatus" style="width:100%;"
+											value="${remotecontrolstatus.rebootstatus}">
+											<html:option value="0">关闭</html:option>
+											<html:option value="1">开启</html:option>
+										</html:select>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										网络监测：
+									</td>
+									<td>
+										<html:select property="netmonitorstatus" style="width:100%;"
+											value="${remotecontrolstatus.netmonitorstatus}"
+											styleId="change2" onchange="change()">
+											<html:option value="0">关闭</html:option>
+											<html:option value="1">开启</html:option>
+										</html:select>
+									</td>
+								</tr>
+								<tr id="netmonitortime">
+									<td>
+										监测时间：
+									</td>
+									<td>
+										<html:select property="netmonitortime" style="width:100%;"
+											value="${remotecontrolstatus.netmonitortime}">
+											<html:option value="5">5分钟</html:option>
+											<html:option value="10">10分钟</html:option>
+											<html:option value="15">15分钟</html:option>
+											<html:option value="20">20分钟</html:option>
+											<html:option value="25">25分钟</html:option>
+											<html:option value="30">30分钟</html:option>
+											<html:option value="60">60分钟</html:option>
+										</html:select>
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										流水下载：
+									</td>
+									<td>
+										<html:select property="autodownload" style="width:100%;"
+											value="${remotecontrolstatus.autodownload}"
+											onchange="change();" styleId="change1">
+											<html:option value="0">关闭</html:option>
+											<html:option value="1">开启</html:option>
+										</html:select>
+									</td>
+								</tr>
+								<tr id="downloadtime">
+									<td>
+										下载时间：
+									</td>
+									<td>
+										<html:select property="downloadtime" style="width:100%;"
+											value="${remotecontrolstatus.downloadtime}">
+											<html:option value="1">1点</html:option>
+											<html:option value="2">2点</html:option>
+											<html:option value="3">3点</html:option>
+											<html:option value="4">4点</html:option>
+											<html:option value="5">5点</html:option>
+											<html:option value="6">6点</html:option>
+											<html:option value="7">7点</html:option>
+											<html:option value="8">8点</html:option>
+											<html:option value="9">9点</html:option>
+											<html:option value="10">10点</html:option>
+											<html:option value="11">11点</html:option>
+											<html:option value="12">12点</html:option>
+											<html:option value="13">13点</html:option>
+											<html:option value="14">14点</html:option>
+											<html:option value="15">15点</html:option>
+											<html:option value="16">16点</html:option>
+											<html:option value="17">17点</html:option>
+											<html:option value="18">18点</html:option>
+											<html:option value="19">19点</html:option>
+											<html:option value="20">20点</html:option>
+											<html:option value="21">21点</html:option>
+											<html:option value="22">22点</html:option>
+											<html:option value="23">23点</html:option>
+											<html:option value="24">24点</html:option>
+										</html:select>
+									</td>
+									
+								</tr>
+								
+								<td colspan="2">
+									<input type="button" id="atmcset" value="确定">
+								</td>
+
+							</logic:present>
+						</html:form>
+					</table>
+
+				</td>
+				<td valign="top">
+					<html:form action="atmsetconfig.do?method=setAtmp" method="post"
+						styleId="form2">
+						<logic:present name="atmpstatus">
+							<table cellspacing="0" cellpadding="0">
+								<tr>
+									<th colspan="2">
+										服务端管理
+									</th>
+								</tr>
+								<tr>
+									<td style="width: 50%">
+										数据同步：
+									</td>
+									<td>
+										<html:select property="sycnstatus"
+											value="${atmpstatus.sycnstatus}" styleId="change1"
+											style="width:100%">
+											<html:option value="0">关闭</html:option>
+											<html:option value="1">开启</html:option>
+										</html:select>
+									</td>
+								</tr>
+								<!-- <tr id="dbiptr">
+						<td align="right">
+							数据库地址：
+						</td>
+						<td>
+							<html:text property="dbip" name="atmpstatus" styleId="ip" />
+						</td>
+					</tr>
+					<tr id="dbporttr">
+						<td align="right">
+							数据库端口：
+						</td>
+						<td>
+							<html:text property="dbport" name="atmpstatus" styleId="port" />
+						</td>
+					</tr>
+					<tr id="dbnametr">
+						<td align="right">
+							数据库名：
+						</td>
+						<td>
+							<html:text property="dbname" name="atmpstatus" styleId="dbname" />
+						</td>
+					</tr>
+					<tr id="dbusernametr">
+						<td>
+							数据库用户名：
+						</td>
+						<td>
+							<html:text property="dbusername" name="atmpstatus"
+								styleId="username" />
+						</td>
+					</tr>
+					<tr id="dbpasswordtr">
+						<td align="right">
+							数据库密码：
+						</td>
+						<td>
+							<html:text property="dbpassword" name="atmpstatus"
+								styleId="password" />
+						</td>
+					</tr>
+					<tr id="sycntimetr">
+						<td>
+							同步间隔：
+						</td>
+						<td>
+							<html:select property="sycntime" value="${atmpstatus.sycntime}">
+								<html:option value="5">5分钟</html:option>
+								<html:option value="10">10分钟</html:option>
+								<html:option value="15">15分钟</html:option>
+								<html:option value="20">20分钟</html:option>
+								<html:option value="25">25分钟</html:option>
+								<html:option value="30">30分钟</html:option>
+							</html:select>
+						</td>
+					</tr>-->
+								<tr id="dbporttr">
+									<td align="right">
+										数据端口：
+									</td>
+									<td>
+										<html:text property="dbport" name="atmpstatus" styleId="port"
+											style="width:100%;" />
+
+									</td>
+								</tr>
+								<tr>
+									<td align="right">
+										数据迁移：
+									</td>
+									<td>
+										<html:select property="mgrtstatus"
+											value="${atmpstatus.mgrtstatus}" styleId="change2"
+											style="width:100%">
+											<html:option value="0">关闭</html:option>
+											<html:option value="1">开启</html:option>
+										</html:select>
+									</td>
+								</tr>
+
+
+								<tr id="mgrtpathtr">
+									<td>
+										本地文件：
+									</td>
+									<td>
+										<html:text property="mgrtpath" name="atmpstatus"
+											style="width:100%;" styleId="mgrtpath" />
+									</td>
+								</tr>
+
+								<tr id="ftpipid">
+									<td align="right">
+										FTP地址：
+									</td>
+									<td>
+										<html:text property="ftpip" name="atmpstatus" styleId="ftpip"
+											style="width:100%;" />
+									</td>
+								</tr>
+								<tr id="ftpportid">
+									<td align="right">
+										FTP端口：
+									</td>
+									<td>
+										<html:text property="ftpport" name="atmpstatus"
+											style="width:100%;" styleId="ftpport" />
+									</td>
+								</tr>
+								<tr id="ftppathid">
+									<td align="right">
+										FTP文件：
+									</td>
+									<td>
+										<html:text property="ftppath" name="atmpstatus"
+											style="width:100%;" styleId="ftppath" />
+									</td>
+								</tr>
+								<tr id="ftpusernameid">
+									<td align="right">
+										FTP用户名：
+									</td>
+									<td>
+										<html:text property="ftpusername" name="atmpstatus"
+											style="width:100%;" styleId="ftpusername" />
+									</td>
+								</tr>
+								<tr id="ftppasswordid">
+									<td align="right">
+										FTP密码：
+									</td>
+									<td>
+										<html:text property="ftppassword" name="atmpstatus"
+											style="width:100%;" styleId="ftppassword" />
+									</td>
+								</tr>
+								<tr >
+									<td>
+										存款钞箱预警金额：
+									</td>
+									<td>
+										<html:text property="maxinmoney" name="atmpstatus" styleId="atm_maxinmoney"
+											style="width:100%;" />
+
+									</td>
+								</tr>
+								<tr >
+									<td>
+										取款钞箱预警金额：
+									</td>
+									<td>
+										<html:text property="maxoutmoney" name="atmpstatus" styleId="atm_maxoutmoney"
+											style="width:100%;" />
+
+									</td>
+								</tr>
+								<tr id="mgrttimeid">
+									<td align="right">
+										迁移时间：
+									</td>
+									<td>
+										<html:select property="mgrttime" name="" style="width:100%;"
+											value="${atmpstatus.mgrttime}" styleId="mgrttime"
+											style="width:100%">
+											<html:option value="1">1点</html:option>
+											<html:option value="2">2点</html:option>
+											<html:option value="3">3点</html:option>
+											<html:option value="4">4点</html:option>
+											<html:option value="5">5点</html:option>
+											<html:option value="6">6点</html:option>
+											<html:option value="7">7点</html:option>
+											<html:option value="8">8点</html:option>
+											<html:option value="9">9点</html:option>
+											<html:option value="10">10点</html:option>
+											<html:option value="11">11点</html:option>
+											<html:option value="12">12点</html:option>
+											<html:option value="13">13点</html:option>
+											<html:option value="14">14点</html:option>
+											<html:option value="15">15点</html:option>
+											<html:option value="16">16点</html:option>
+											<html:option value="17">17点</html:option>
+											<html:option value="18">18点</html:option>
+											<html:option value="19">19点</html:option>
+											<html:option value="20">20点</html:option>
+											<html:option value="21">21点</html:option>
+											<html:option value="22">22点</html:option>
+											<html:option value="23">23点</html:option>
+											<html:option value="24">24点</html:option>
+										</html:select>
+									</td>
+								</tr>
+								
+								<tr>
+									<td colspan="2">
+										<input type="button" id="atmpset" value="确定">
+									</td>
+								</tr>
+							</table>
+						</logic:present>
+					</html:form>
+
+				</td>
+			</tr>
+		</table>
+		<input type="hidden" id="hidden" value="6" />
+	</body>
+</html>

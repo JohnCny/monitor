@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/u7u8u9ui.monitor/!svn/ver/11/monitor/src/cn/sh/ae/inteface
+END
+ISmsDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/inteface/ISmsDao.java
+END
+IAtmhistoryDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/u7u8u9ui.monitor/!svn/ver/18/monitor/src/cn/sh/ae/inteface/IAtmhistoryDAO.java
+END
+IAtmrunDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/inteface/IAtmrunDao.java
+END
+IAtmcompanyDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/inteface/IAtmcompanyDao.java
+END
+IBankTypeDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/inteface/IBankTypeDao.java
+END
+ISmsInfoDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/inteface/ISmsInfoDao.java
+END
+IUserDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/inteface/IUserDao.java
+END
+IAtmDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/inteface/IAtmDao.java
+END
+IUnittypeDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/inteface/IUnittypeDao.java
+END
+IAtmtradataDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/inteface/IAtmtradataDao.java
+END
+IDBAccess.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/inteface/IDBAccess.java
+END
+IAtmtypeDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/inteface/IAtmtypeDao.java
+END
+IAtmcDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/inteface/IAtmcDao.java
+END
+ISocketAccess.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/inteface/ISocketAccess.java
+END
+IRemoteAtmDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/inteface/IRemoteAtmDao.java
+END
+IAtmInfoDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/inteface/IAtmInfoDao.java
+END
+ISmsuserDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/u7u8u9ui.monitor/!svn/ver/8/monitor/src/cn/sh/ae/inteface/ISmsuserDao.java
+END
+IAtmpDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/inteface/IAtmpDao.java
+END

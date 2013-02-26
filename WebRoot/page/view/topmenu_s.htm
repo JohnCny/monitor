@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<style type="text/css">
+* {
+	font-size: 12px;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #FFFFFF;
+	font-size: 12px;
+	color: #666666;
+	font-family: "宋体", arial, Helvetica, sans-serif;
+}
+
+
+
+/*子栏目布局*/
+#menu_s ul {
+	padding: 0;
+	border: 0;
+	list-style: none;
+	line-height: 150%;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 0;
+	margin-left: 15px;
+	float: right;
+}
+
+#menu_out_s {
+	width: 99%;
+	padding-left: 4px;
+	margin-left: auto;
+	margin-right: auto;
+	background: url(../../resources/source/menu/menu_left.gif) no-repeat left bottom;
+}
+
+#menu_in_s {
+	background: url(../../resources/source/menu/menu_right.gif) no-repeat right bottom;
+	padding-right: 4px;
+}
+
+#menu_s {
+	background: url(../../resources/source/menu/menu_bg.gif) repeat-x left bottom;
+	height: 37px;
+}
+
+
+
+.menu_line2 {
+	background: url(../../resources/source/menu/menu_line2.gif) no-repeat left top;
+	width: 15px;
+}
+
+/*子栏目*/
+#menu_con {
+	text-align: left;
+	clear: both;
+}
+
+#menu_con li {
+	float: left;
+	height: 22px;
+	margin-top: 8px;
+}
+
+#menu_con li a {
+	display: block;
+	float: left;
+	background: url(../../resources/source/menu/menu_on_left2.gif) no-repeat left
+		top;
+	cursor: pointer;
+	padding-left: 3px;
+		text-decoration: none;
+		color:blue;
+}
+
+#menu_con li a span {
+	float: left;
+	padding: 6px 10px 4px 10px;
+	line-height: 12px;
+	background: url(../../resources/source/menu/menu_on_right2.gif) no-repeat
+		right top;
+}
+/*鼠标悬停效果*/
+#menu_con li a:hover {
+	text-decoration: none;
+	background: url(../../resources/source/menu/menu_on_left2.gif) no-repeat left bottom;
+	color:blue;
+}
+
+#menu_con li a:hover span {
+	background: url(../../resources/source/menu/menu_on_right2.gif) no-repeat right bottom;
+}
+/*鼠标悬停效果*/
+
+
+
+/*当前栏目效果*/
+#menu_con li .menu_on{	text-decoration: none;
+	background: url(../../resources/source/menu/menu_on_left3.gif) no-repeat left bottom;
+	color:#666666;
+}
+#menu_con li .menu_on span {	background: url(../../resources/source/menu/menu_on_right3.gif) no-repeat right bottom;
+}
+/*当前栏目效果*/
+</style>
+</head>
+<body>
+<div id="menu_out_s">
+    <div id="menu_in_s">
+        <div id="menu_s">
+            <div id="menu_con">
+                <div id="menu_con"> <span style="float: left; margin: 8px;"><img
+									src="../../resources/source/loguser.gif" width="16" height="16" border="0" />您好, 
+                    ,欢迎使用自助设备综合管理系统 | | <a href="#" style="color:blue">退出</a> </span>
+                    <div id="qh_con0" style="display: none;"> </div>
+                    <div id="qh_con1" style="display: none"> </div>
+                    <div id="qh_con2" style="display: block ">
+                        <ul>
+                            <li> <a href="#" class="menu_on"><span>现金分析</span> </a> </li>
+                            <li class="menu_line2"></li>
+                            <li> <a href="#" class="menu_off"><span>交易信息</span> </a> </li>
+                            <li class="menu_line2"></li>
+                            <li> <a href="#" class="menu_off"><span>运行信息</span> </a> </li>
+                        </ul>
+                    </div>
+                    <div id="qh_con3" style="display: none">
+                        <ul>
+                            <li> <a href="#"><span>文件下载</span> </a> </li>
+                            <li class="menu_line2"></li>
+                            <li> <a href="#"><span>文件上传</span> </a> </li>
+                            <li class="menu_line2"></li>
+                            <li> <a href="#"><span>远程执行</span> </a> </li>
+                        </ul>
+                    </div>
+                    <div id="qh_con4" style="display: none"> </div>
+                    <div id="qh_con5" style="display: none">
+                        <ul>
+                            <li> <a href="#"><span>发信管理</span> </a> </li>
+                            <li class="menu_line2"></li>
+                            <!-- <li>
+										<a href="smsconfig.do?method=all"><span>用户管理</span> </a>
+									</li>
+									<li class="menu_line2"></li> -->
+                            <li> <a href="#"><span>历史查询</span> </a> </li>
+                            <li class="menu_line2"></li>
+                            <li> <a href="#"><span>测试与发送</span> </a> </li>
+                        </ul>
+                    </div>
+                    <div id="qh_con6" style="display: none">
+                        <ul>
+                            <li> <a href="#"><span>用户管理</span> </a> </li>
+                            <li class="menu_line2"></li>
+                            <li> <a href="#"><span>服务管理</span> </a> </li>
+                            <li class="menu_line2"></li>
+                            <li> <a href="#"><span>设备管理</span> </a> </li>
+                            <li class="menu_line2"></li>
+                            <li> <a href="#"><span>信息管理</span> </a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

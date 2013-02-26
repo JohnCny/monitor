@@ -1,0 +1,423 @@
+TD {
+	FONT-SIZE: 9pt; FONT-FAMILY: Arial
+}
+P {
+	FONT-SIZE: 9pt; FONT-FAMILY: Arial
+}
+LI {
+	FONT-SIZE: 9pt; FONT-FAMILY: Arial
+}
+TD {
+	FONT-SIZE: 10pt; COLOR: #000000
+}
+BODY {
+	FONT-SIZE: 10pt; COLOR: #000000
+}
+.blktitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; COLOR: #000000
+}
+.navytitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; COLOR: #000000
+}
+.blksub {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #000000
+}
+.navysub {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #000000
+}
+.redhilite {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #ff0000
+}
+.engtxt1 {
+	FONT-SIZE: 9pt; FONT-FAMILY: "Arial"
+}
+.engtxt2 {
+	FONT-SIZE: 9pt; FONT-FAMILY: "Tahoma"
+}
+A:link {
+	FONT-SIZE: 9pt; COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-SIZE: 9pt; COLOR: #000000; TEXT-DECORATION: none
+}
+A:active {
+	FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 9pt; COLOR: #00a0a0; TEXT-DECORATION: none
+}
+A.a:link {
+	FONT-SIZE: 9pt; COLOR: #000000; TEXT-DECORATION: none
+}
+A.a:visited {
+	FONT-SIZE: 9pt; COLOR: #000000; TEXT-DECORATION: none
+}
+A.a:active {
+	FONT-SIZE: 9pt; TEXT-DECORATION: none
+}
+A.a:hover {
+	FONT-SIZE: 9pt; COLOR: #00a0a0; TEXT-DECORATION: none
+}
+A.top:link {
+	FONT-SIZE: 9pt; COLOR: #465f45; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+A.top:visited {
+	FONT-SIZE: 9pt; COLOR: #465f45; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+A.top:active {
+	FONT-SIZE: 9pt; COLOR: #465f45; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+A.top:hover {
+	FONT-SIZE: 9pt; COLOR: #465f45; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+A.left:link {
+	FONT-SIZE: 9pt; COLOR: #465f45; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+A.left:visited {
+	FONT-SIZE: 9pt; COLOR: #465f45; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+A.left:active {
+	FONT-SIZE: 9pt; COLOR: #465f45; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+A.left:hover {
+	FONT-SIZE: 9pt; COLOR: #465f45; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.html_bg {
+	
+}
+.memo1 {
+	BORDER-RIGHT: #fffff4 1px solid; BORDER-TOP: #fffff4 0px solid; FONT-SIZE: 14px; BORDER-LEFT: #fffff4 0px solid; BORDER-BOTTOM: #fffff4 1px solid; BACKGROUND-COLOR: #999999
+}
+.memo2 {
+	BACKGROUND-COLOR: #fffff4
+}
+.memo3 {
+	BORDER-RIGHT: #fffff4 0px solid; BORDER-TOP: #fffff4 1px solid; FONT-SIZE: 14px; MARGIN: 1px; BORDER-LEFT: #fffff4 1px solid; BORDER-BOTTOM: #fffff4 0px solid; BACKGROUND-COLOR: #666666
+}
+.jim {
+	BORDER-RIGHT: #ff9933 1px solid; BORDER-TOP: #ff9933 1px solid; FONT-SIZE: 14px; BORDER-LEFT: #ff9933 1px solid; BORDER-BOTTOM: #ff9933 1px solid; BACKGROUND-COLOR: #e8e8e8
+}
+.top {
+	FONT-SIZE: 9pt; COLOR: #000000; TEXT-DECORATION: none
+}
+.left {
+	FONT-SIZE: 9pt; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #ff9933; TEXT-DECORATION: underline
+}
+.bian {
+	FONT-SIZE: 14px; BACKGROUND-COLOR: #ff9933
+}
+.bei {
+	BACKGROUND-COLOR: #e8e8e8
+}
+.hei14 {
+	FONT-SIZE: 14px; COLOR: #000000; TEXT-DECORATION: none
+}
+.err {
+	FONT-SIZE: 14px; COLOR: #003366
+}
+.userhelp {
+	FONT-SIZE: 10px; COLOR: #000000; TEXT-DECORATION: none
+}
+.tdhelp {
+	BACKGROUND-COLOR: #e9e9e9
+}
+.inputtitle {
+	FONT-SIZE: 12px; BACKGROUND-IMAGE: url(/images/back-jb1.gif); COLOR: #ffffff; TEXT-DECORATION: none
+}
+.tr1 {
+	FONT-SIZE: 8px; BACKGROUND-COLOR: #e9e9e9
+}
+.inputlabel {
+	FONT-SIZE: 11px
+}
+.userhelptitle {
+	FONT-SIZE: 12px; BACKGROUND-IMAGE: url(/images/back-jb2.gif); COLOR: #ffffff
+}
+.outputtd1 {
+	FONT-SIZE: 12px; BACKGROUND-IMAGE: url(/images/back-jb2.gif); COLOR: #ffffff
+}
+.outputtd2 {
+	FONT-SIZE: 10px; BACKGROUND-COLOR: #e9e9e9
+}
+.outputtd3 {
+	FONT-SIZE: 8px; COLOR: #e9e9e9
+}
+.outputtr1 {
+	FONT-SIZE: 12px; BACKGROUND-COLOR: #e9e9e9
+}
+.outputtr2 {
+	
+}
+.outputtr3 {
+	
+}
+.outputitle {
+	
+}
+.outputtable1 {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; BORDER-LEFT-COLOR: #e9e9e9; BORDER-BOTTOM-WIDTH: 1px; BORDER-RIGHT-WIDTH: 1px
+}
+.getTableTab {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.getTableTR {
+	align: "center" background-color:"#E9E9E9"
+}
+.getTableTR0 {
+	align: "center" background-color:"#E7E7E7"
+}
+.getTableTR1 {
+	align: "center" background-color:"#E0E0E0"
+}
+.getTableTD {
+	FONT-SIZE: 11px; COLOR: #000000; BACKGROUND-COLOR: #e9e9e9
+}
+.getTableTD0 {
+	FONT-SIZE: 11px; COLOR: #000000; BACKGROUND-COLOR: #e7e7e7
+}
+.getTableTD1 {
+	FONT-SIZE: 11px; COLOR: #ffffff; BACKGROUND-COLOR: #778899
+}
+TABLE.Input {
+	FONT-SIZE: 9pt; BACKGROUND-COLOR: #cccccc
+}
+TABLE.List {
+	FONT-SIZE: 9pt; BACKGROUND-COLOR: #cccccc
+}
+TABLE.Query {
+	FONT-SIZE: 9pt; BACKGROUND-COLOR: #cccccc
+}
+TR.ITRowHead {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #000000; BACKGROUND-COLOR: #6ec29f
+}
+TR.ITOddRow {
+	FONT-SIZE: 9pt; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: center
+}
+TR.ITEvenRow {
+	FONT-SIZE: 9pt; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: center
+}
+TR.ITSumRow {
+	FONT-SIZE: 9pt; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: right
+}
+TR.LTRowHead {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #000000; BACKGROUND-COLOR: #6ec29f
+}
+TR.LTOddRow {
+	FONT-SIZE: 9pt; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: center
+}
+TR.LTEvenRow {
+	FONT-SIZE: 9pt; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: center
+}
+TR.LTSumRow {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #cc0000; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: center
+}
+TR.QTRowHead {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #000000; BACKGROUND-COLOR: #6ec29f
+}
+TR.QTOddRow {
+	FONT-SIZE: 9pt; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: center
+}
+TR.QTEvenRow {
+	FONT-SIZE: 9pt; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: center
+}
+TR.QTSumRow {
+	FONT-SIZE: 9pt; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: right
+}
+TD.ITColHead {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #ffffff; BACKGROUND-COLOR: #6ec29f
+}
+TD.ITContext {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: right; TEXT-DECORATION: none
+}
+TD.ITConKey {
+	FONT-SIZE: 9pt; COLOR: #cc0000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+TD.ITConKeyII {
+	FONT-SIZE: 9pt; COLOR: #cc0000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+TD.ITConNum {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: right; TEXT-DECORATION: none
+}
+TD.ITConStatus {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: right; TEXT-DECORATION: none
+}
+TD.IInput {
+	FONT-SIZE: 9pt; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+TD.IInputII {
+	FONT-SIZE: 9pt; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+TD.LTColHead {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #ffffff; BACKGROUND-COLOR: #6ec29f
+}
+TD.LTContext {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: right; TEXT-DECORATION: none
+}
+TD.LTValue {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+TD.LTContextII {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: right; TEXT-DECORATION: none
+}
+TD.LTValueII {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #f7f7f7; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+TD.LTConKey {
+	FONT-SIZE: 9pt; COLOR: #cc0000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+TD.LTConNum {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+TD.LTConStatus {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+TD.QTColHead {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #ffffff; BACKGROUND-COLOR: #6ec29f
+}
+TD.QTContext {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: right; TEXT-DECORATION: none
+}
+TD.QTConKey {
+	FONT-SIZE: 9pt; COLOR: #cc0000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: right; TEXT-DECORATION: none
+}
+TD.QTConNum {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: right; TEXT-DECORATION: none
+}
+TD.QTConStatus {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+TD.QInput {
+	FONT-SIZE: 9pt; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; BACKGROUND-COLOR: #efefef; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+P {
+	LINE-HEIGHT: 16pt; FONT-FAMILY: "Arial"
+}
+P.Header {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #cc0000; FONT-STYLE: normal; FONT-FAMILY: 宋体,Arial,"Ms Sans Serif"
+}
+P.Copyright {
+	FONT-SIZE: 9pt; BACKGROUND-COLOR: #e6e6fa; TEXT-ALIGN: center
+}
+P.Center {
+	FONT-SIZE: 9pt; FONT-FAMILY: "Arial"; TEXT-ALIGN: center
+}
+P.Left {
+	FONT-SIZE: 9pt; FONT-FAMILY: "Arial"; TEXT-ALIGN: left
+}
+P.Right {
+	FONT-SIZE: 9pt; FONT-FAMILY: "Arial"; TEXT-ALIGN: right
+}
+BODY {
+	FONT-SIZE: 9pt; FONT-FAMILY: 宋体,Arial,"Ms Sans Serif"
+}
+H1 {
+	DISPLAY: inline; FONT-SIZE: 9pt; COLOR: #cc0000
+}
+.W100 {
+	WIDTH: 100px; POSITION: relative
+}
+.W120 {
+	WIDTH: 120px; POSITION: relative
+}
+.W150 {
+	WIDTH: 150px; POSITION: relative
+}
+.W200 {
+	WIDTH: 200px; POSITION: relative
+}
+.W250 {
+	WIDTH: 250px; POSITION: relative
+}
+.W300 {
+	WIDTH: 300px; POSITION: relative
+}
+.W350 {
+	WIDTH: 350px; POSITION: relative
+}
+.W400 {
+	WIDTH: 400px; POSITION: relative
+}
+BUTTON {
+	FONT-SIZE: 9pt; BACKGROUND: #dddddd; WIDTH: 50px; CURSOR: hand; COLOR: #000000; LINE-HEIGHT: 12pt; FONT-FAMILY: 宋体,Arial,"Ms Sans Serif"; dborder: 1px solid gray; dheight: 16pt
+}
+.ButtonCustom {
+	FONT-SIZE: 9pt; BACKGROUND: #dddddd; CURSOR: hand; COLOR: #000000; LINE-HEIGHT: 12pt; FONT-FAMILY: 宋体,Arial,"Ms Sans Serif"; dborder: 1pt solid gray; dheight: 16pt
+}
+.Shortcut {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; CURSOR: hand; COLOR: firebrick; link: FireBrick; visited: Orange; active: FireBrick
+}
+.bgblue {
+	BACKGROUND-COLOR: #9ccdcd
+}
+.txt {
+	FONT-SIZE: 9pt; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.txtgray {
+	FONT-SIZE: 9pt; COLOR: #333333; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+.bg_green {
+	BACKGROUND-COLOR: #049459
+}
+.txte {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"
+}
+.txtgray2 {
+	FONT-SIZE: 9pt; COLOR: #999999
+}
+.txtblue {
+	FONT-SIZE: 9pt; COLOR: #3366cc
+}
+.time {
+	FONT-SIZE: 9pt; COLOR: #666666
+}
+.bg_white {
+	BACKGROUND-COLOR: #ffffff
+}
+.bg_green2 {
+	BACKGROUND-COLOR: #dbeff0
+}
+.txt_white {
+	FONT-SIZE: 9pt; COLOR: #ffffff; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"
+}
+.txt_green {
+	FONT-SIZE: 9pt; COLOR: #006666; LINE-HEIGHT: 18px
+}
+.bg_gray {
+	BACKGROUND-COLOR: #efefef
+}
+.bg_yellow {
+	BACKGROUND-COLOR: #808285
+}
+.bg_gray2 {
+	BACKGROUND-COLOR: #666666
+}
+.txt_red {
+	FONT-SIZE: 9pt; COLOR: #ffffff; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"
+}
+.bg_gray3 {
+	BACKGROUND-COLOR: #cccccc
+}
+.bg_yellow2 {
+	BACKGROUND-COLOR: #000000
+}
+.txt_bold {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #000000
+}
+.txt_content {
+	FONT-SIZE: 9pt; COLOR: #000000; LINE-HEIGHT: 18px
+}
+.bg_title {
+	BACKGROUND-COLOR: #049459
+}
+.bg_gray4 {
+	BACKGROUND-COLOR: #f7f7f7
+}
+.txt_m {
+	FONT-SIZE: 14px; COLOR: #000000; LINE-HEIGHT: 20px
+}
+.txt_code {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"
+}

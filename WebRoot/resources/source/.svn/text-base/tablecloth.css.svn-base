@@ -1,0 +1,39 @@
+/* 
+
+	TableCloth	
+	by Alen Grakalic, brought to you by cssglobe.com
+	
+*/
+
+/* general styles */
+
+body { 
+    background: #E6EAE9; 
+	padding: 0px; 
+	margin: 0px;
+	text-align: center
+} 
+
+
+table, td{
+	font: normal 12px auto "宋体", Verdana, Arial, Helvetica, sans-serif; 
+}
+table{width:100%;border-collapse:collapse;margin:0px;;}
+th, td{text-align:center;padding:.0px;border:1px solid #fff;}
+th{background:#328aa4 url(menu/menu_bg.gif) repeat-x;color:#fff;font-size: 15px;height:25px;}
+td{background:#e5f1f4;}
+
+
+
+#doc {
+	margin: 0px;
+	padding: 0px;
+}
+
+.fixTh .tc {
+	width: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	text-align: left;
+
+}

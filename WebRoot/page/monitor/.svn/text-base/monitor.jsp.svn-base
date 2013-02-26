@@ -1,0 +1,147 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
+<%@ taglib prefix="tiles" uri="/WEB-INF/struts-tiles.tld"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<base href="<%=basePath%>">
+		<title>状态监控</title>
+		<link href="resources/source/tablecloth.css" rel="stylesheet"
+			type="text/css" media="screen" />
+		<script>
+function locking(id1,id2){
+document.getElementById(id1).style.display="block";
+document.getElementById(id1).style.width=document.body.clientWidth;
+document.getElementById(id1).style.height=document.body.clientHeight;
+document.getElementById(id2).style.display='block';
+}
+function Lock_CheckForm(theForm){
+document.all.ly.style.display='none';
+document.all.Layer2.style.display='none';
+location.replace(location.href);    
+return false;
+}
+</script>
+	</head>
+
+	<body style="text-align: center; background: #E6EAE9;">
+		<table cellspacing="0" cellpadding="0" style="width: 1000px;">
+			<tr>
+				<td colspan="2">
+					<tiles:insert page="../../page/view/topmenu.jsp" flush="false" />
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align: left;">
+					<div style="float: left;">
+						<a href="javascript:void(0);"
+							onclick="locking('ly','Layer2');return false;">筛选</a>：
+						<font color="red"><bean:write name="showtype" /> </font>
+						<bean:write name="AtmCount" />
+						台
+					</div>
+					<div id="loading" style="float: right;"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<logic:present name="atmstatus1">
+						<div id="doc">
+							<div class="fixTh" style="text-align: left;">
+								<table cellspacing="0" cellpadding="0" style="width: 98.5%">
+									<tr>
+										<th width="10%">
+											编号
+										</th>
+										<th width="15%">
+											设备类型
+										</th>
+										<th width="10%">
+											流水打印
+										</th>
+										<th width="10%">
+											凭条打印
+										</th>
+										<th width="10%">
+											出钞模组
+										</th>
+										<th width="10%">
+											存款模组
+										</th>
+										<th width="5%">
+											读卡器
+										</th>
+										<th width="5%">
+											线路
+										</th>
+										<th width="5%">
+											钞箱
+										</th>
+										<!-- <th width="10%">
+							存款箱张数
+						</th> -->
+										<th width="10%">
+											所属机构
+										</th>
+										<th width="10%">
+											操作
+										</th>
+									</tr>
+								</table>
+
+								<div class="tc" style="height: 450px">
+									<tiles:insert page="../../page/monitor/atmstatuslist.jsp"
+										flush="true" />
+								</div>
+							</div>
+						</div>
+					</logic:present>
+
+
+					<logic:present name="atmstatus2">
+						<div id="doc">
+							<div class="fixTh">
+								<div class="tc" style="height: 500px">
+									<tiles:insert page="../../page/monitor/atmstatusicon.jsp"
+										flush="true" />
+								</div>
+							</div>
+						</div>
+					</logic:present>
+
+				</td>
+			</tr>
+		</table>
+		<input type="hidden" id="hidden" value="1" />
+
+
+		<div id="ly"
+			style="position: absolute; top: 0px; filter: alpha(opacity =                                                         60); background-color: #777; z-index: 2; left: 0px; display: none;">
+		</div>
+		<div id="Layer2" align="center"
+			style="position: absolute; z-index: 3; width: 600; left: expression((                                                             document .                                                             body .                                                             offsetWidth-540)/ 2 ); top: expression((                                                             document .                                                             body .                                                             offsetHeight-170)/ 2 ); background-color: #fff; display: none;">
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<td>
+						<tiles:insert page="changetitle.jsp" flush="true" />
+					</td>
+				</tr>
+				<!-- 
+				<tr>
+					<td align="center">
+						<input type="button" value="确定" onclick="Lock_CheckForm(this);">
+					</td>
+				</tr> -->
+			</table>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/u7u8u9ui.monitor/!svn/ver/11/monitor/src/cn/sh/ae/dao
+END
+BankTypeDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/dao/BankTypeDao.java
+END
+SmsInfoDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/dao/SmsInfoDao.java
+END
+UserDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/dao/UserDao.java
+END
+AtmDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/u7u8u9ui.monitor/!svn/ver/13/monitor/src/cn/sh/ae/dao/AtmDao.java
+END
+UnittypeDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/dao/UnittypeDao.java
+END
+AtmtradataDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/dao/AtmtradataDao.java
+END
+AtmtypeDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/dao/AtmtypeDao.java
+END
+AtmcDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/dao/AtmcDao.java
+END
+AtmInfoDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/dao/AtmInfoDao.java
+END
+RemoteAtmDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/dao/RemoteAtmDao.java
+END
+AtmpDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/u7u8u9ui.monitor/!svn/ver/9/monitor/src/cn/sh/ae/dao/AtmpDao.java
+END
+SmsuserDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/u7u8u9ui.monitor/!svn/ver/8/monitor/src/cn/sh/ae/dao/SmsuserDao.java
+END
+SmsDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/dao/SmsDao.java
+END
+AtmhistoryDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/u7u8u9ui.monitor/!svn/ver/18/monitor/src/cn/sh/ae/dao/AtmhistoryDAO.java
+END
+AtmrunDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/dao/AtmrunDao.java
+END
+AtmcompanyDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/u7u8u9ui.monitor/!svn/ver/6/monitor/src/cn/sh/ae/dao/AtmcompanyDao.java
+END

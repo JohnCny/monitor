@@ -1,0 +1,82 @@
+.css {
+	font-family: "����";
+	font-size: 13px;
+	color: #FFFFFF;
+}
+
+.front_bt {
+	font-family: "����";
+	font-size: 13px;
+	font-weight: lighter;
+}
+
+.front_dbt {
+	font-family: "����";
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.front_small {
+	font-family: "����";
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.biaozhun {
+	font-family: "����";
+	font-size: 12px;
+}
+
+.css1 {
+	font-family: "����";
+	font-size: 13px;
+	color: #000000;
+}
+
+.style4 {
+	color: #FFFFCC;
+	font-weight: bold;
+}
+
+.style5 {
+	color: #FFFFCC
+}
+
+.style7 {
+	color: #00AA7B
+}
+
+.style8 {
+	color: #FFFFFF
+}
+
+a:link {
+	text-decoration: none;
+	color: #00000;
+	border: 0px;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #000000;
+	border: 0px;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #FFF000;
+	border: 0px;
+}
+
+a:active {
+	text-decoration: none;
+	color: #000000;
+	border: 0px;
+}
+
+.tablebg {
+	background-color: #D2E9FF;
+	font-family: "����";
+	font-size: 14px;
+	font-weight: bold;
+}

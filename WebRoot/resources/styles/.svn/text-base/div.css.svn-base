@@ -1,0 +1,121 @@
+#d1,#d3,#d4 {
+	margin: 5px 0px;
+	width: 100%;
+	background-color: #eee;
+}
+
+#d1 {
+	border: 1px solid #444;
+	height: 100px;
+	padding: 0px 15px;
+}
+
+#d3,#d4 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	border-left: 1px solid #444;
+	border-right: 1px solid #444;
+}
+
+.m {
+	height: 100px;
+	width: 100%;
+	padding: 0px 15px;
+	position: relative;
+}
+
+#d3 .m {
+	margin: -4px 0px;
+}
+
+#d4 .m {
+	margin: -5px 0px;
+}
+
+.rt,.rb {
+	display: block;
+	width: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.rt {
+	margin-top: 5px;
+}
+
+.rb {
+	margin-bottom: 5px;
+}
+
+.rt *,.rb * {
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	background-color: #eee;
+	border-left: 1px solid #444;
+	border-right: 1px solid #444;
+}
+
+.r1 {
+	margin: 0 5px;
+	background-color: #444;
+}
+
+.r2 {
+	margin: 0 3px;
+	border-width: 0px 2px;
+}
+
+.r3 {
+	margin: 0 2px;
+}
+
+.r4 {
+	margin: 0 1px;
+	height: 2px;
+}
+
+.rb1 {
+	margin: 0 6px;
+	background-color: #444;
+}
+
+.rb2 {
+	margin: 0 4px;
+	border-width: 0px 2px;
+}
+
+.rb3 {
+	margin: 0 3px;
+}
+
+.rb4 {
+	margin: 0 2px;
+}
+
+.rb5 {
+	margin: 0 1px;
+	height: 2px;
+}
+
+.a {
+	BORDER: #bfceff 1px solid;
+	height: 18;
+	FILTER: progid : DXImageTransform . Microsoft .
+		Gradient(gradientType = 0, startColorStr =   '#ddecfb ', endColorStr =  
+		'#ffffff ');
+	width: 180;
+	font-family: "ËÎÌו";
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.b {
+	BORDER: #bfceff 1px solid;
+	PADDING-TOP: 10px;
+	PADDING-LEFT: 10px;
+	FONT-SIZE: 12px;
+	HEIGHT: 100px;
+	width: 180;
+	border-top: 0;
+}

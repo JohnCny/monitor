@@ -1,0 +1,283 @@
+package cn.sh.ae.dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import cn.sh.ae.inteface.ISmsuserDao;
+import cn.sh.ae.vo.Smsuser;
+
+/**
+ * 
+ */
+public class SmsuserDao implements ISmsuserDao {
+
+	private static final long serialVersionUID = -2231780038213962049L;
+
+	static Logger logger = Logger.getLogger(SmsuserDao.class.getName());
+
+	@Override
+	public List<Smsuser> getSmsUser(Connection conn) {
+		List<Smsuser> list = null;
+		Smsuser smsuser = null;
+		try {
+			ResultSet rs = conn.createStatement().executeQuery(
+					"select * from smsuser order by bugtype");
+			list = new ArrayList<Smsuser>();
+			while (rs.next()) {
+				smsuser = new Smsuser();
+				smsuser.setMoblie(rs.getString("moblie").trim());
+				smsuser.setName(rs.getString("name").trim());
+				String atmids = "";
+				String[] atmid = rs.getString("atmids").trim().split(",");
+				for (int i = 1; i <= atmid.length; i++) {
+					atmids += atmid[i - 1];
+					atmids += "<br>";
+				}
+				// logger.info(atmids);
+				smsuser.setAtmids(atmids);
+				smsuser.setBugtype(String.valueOf(rs.getInt("bugtype")));
+				smsuser.setStatus(String.valueOf(rs.getInt("status")));
+				smsuser.setSolvetime(String.valueOf(rs.getInt("solvetime")));
+				list.add(smsuser);
+			}
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage(), e);
+			list = null;
+		}
+		return list;
+	}
+
+	@Override
+	public void createSms(Connection conn, Smsuser smsuser) {
+		String sql = "insert into smsuser values('" + smsuser.getMoblie()
+				+ "','" + smsuser.getName() + "','" + smsuser.getAtmids()
+				+ "'," + smsuser.getBugtype() + "," + smsuser.getStatus() + ","
+				+ smsuser.getSolvetime() + ")";
+		// logger.info(sql);
+		try {
+			conn.createStatement().executeUpdate(sql);
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage(), e);
+		}
+	}
+
+	@Override
+	public Smsuser getUserByMoblie(Connection conn, Smsuser smsuser) {
+		Smsuser user = null;
+		String sql = "select * from Smsuser where moblie='"
+				+ smsuser.getMoblie() + "' and bugtype=" + smsuser.getBugtype()
+				+ " and solvetime=" + smsuser.getSolvetime();
+		logger.info(sql);
+		try {
+			ResultSet rs = conn.createStatement().executeQuery(sql);
+			while (rs.next()) {
+				user = new Smsuser();
+				user.setMoblie(rs.getString("moblie"));
+				user.setMoblie_old(rs.getString("moblie"));
+				user.setName(rs.getString("name"));
+				user.setAtmids(rs.getString("atmids"));
+				user.setBugtype(String.valueOf(rs.getInt("bugtype")));
+				user.setStatus(String.valueOf(rs.getInt("status")));
+				user.setSolvetime(String.valueOf(rs.getInt("solvetime")));
+
+			}
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage(), e);
+			user = null;
+		}
+		return user;
+	}
+
+	@Override
+	public void modifyUser(Connection conn, Smsuser user) {
+		String sql = "update Smsuser set moblie='" + user.getMoblie()
+				+ "',name='" + user.getName() + "',atmids='" + user.getAtmids()
+				+ "',bugtype=" + user.getBugtype() + ",status="
+				+ user.getStatus() + ",solvetime=" + user.getSolvetime()
+				+ " where moblie='" + user.getMoblie_old() + "' and bugtype="
+				+ user.getBugtype() + " and solvetime="
+				+ user.getSolvetime_old();
+		// logger.info(sql);
+		try {
+			conn.createStatement().executeUpdate(sql);
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage(), e);
+		}
+	}
+
+	// @Override
+	// public List<String> getAtmIdByType(Connection conn, String type) {
+	// List<String> list = null;
+	// List<String> list_1 = null;
+	// try {
+	// ResultSet rs = conn.createStatement().executeQuery(
+	// "select atmids from Smsuser where bugtype=" + type);
+	// list = new ArrayList<String>();
+	// list_1 = new ArrayList<String>();
+	// while (rs.next()) {
+	// String[] atmids = rs.getString("atmids").split(",");
+	// for (int i = 0; i < atmids.length; i++) {
+	// list.add(atmids[i]);
+	// }
+	// }
+	// ResultSet rs_1 = conn.createStatement().executeQuery(
+	// "select atmid from atm order by atmid");
+	// while (rs_1.next()) {
+	// list_1.add(rs_1.getString("atmid"));
+	// }
+	// for (String atmid : list) {
+	// list_1.remove(atmid);
+	// }
+	// } catch (Exception e) {
+	// list = null;
+	// list_1 = null;
+	// logger.error(e.getLocalizedMessage(), e);
+	// }
+	// return list_1;
+	// }
+
+	@Override
+	public List<String> getAtmIdByType(Connection conn, int level) {
+		List<String> list = new ArrayList<String>();
+		String sql = "select atm.atmid,atm.addr,atmcompany.company_ch,atmtype.type_ch from atm,atmcompany,atmtype where atm.company=atmcompany.id and atm.route=atmtype.id ";
+		if (level != 0)
+			sql += " and atm.type='" + level + "' ";
+		sql += "order by atmid";
+		logger.info(sql);
+		try {
+			ResultSet rs = conn.createStatement().executeQuery(sql);
+			while (rs.next()) {
+				list.add(rs.getString("atmid")
+						+ " "
+						+ (rs.getString("addr").length() > 4 ? rs.getString(
+								"addr").substring(0, 4) : rs.getString("addr"))
+						+ " " + rs.getString("company_ch") + "-"
+						+ rs.getString("type_ch"));
+			}
+
+		} catch (Exception e) {
+			list = null;
+			logger.error(e.getLocalizedMessage(), e);
+		}
+		return list;
+	}
+
+	@Override
+	public List<Smsuser> getSmsListByType(Connection conn, String type) {
+		List<Smsuser> SmsList = null;
+		Smsuser sms = null;
+		try {
+			ResultSet rs = conn.createStatement().executeQuery(
+					"select * from Smsuser where bugtype=" + type);
+			SmsList = new ArrayList<Smsuser>();
+			while (rs.next()) {
+				sms = new Smsuser();
+				sms.setAtmids(rs.getString("atmids"));
+				sms.setBugtype(String.valueOf(rs.getInt("bugtype")));
+				sms.setMoblie(rs.getString("moblie"));
+				sms.setName(rs.getString("name"));
+				sms.setStatus(String.valueOf(rs.getInt("status")));
+				sms.setSolvetime(String.valueOf(rs.getInt("solvetime")));
+				SmsList.add(sms);
+			}
+		} catch (Exception e) {
+			SmsList = null;
+			logger.error(e.getLocalizedMessage(), e);
+		}
+		return SmsList;
+	}
+
+	@Override
+	public Smsuser getMobileByAtmId(Connection conn, String atmId, String type,
+			String level) {
+		Smsuser sms = null;
+		try {
+			String sql = "select moblie,status,name from Smsuser where bugtype="
+					+ type
+					+ " and solvetime="
+					+ level
+					+ " and atmids like '%"
+					+ atmId + "%'";
+			logger.info(sql);
+			ResultSet rs = conn.createStatement().executeQuery(sql);
+			while (rs.next()) {
+				sms = new Smsuser();
+				sms.setMoblie(rs.getString("moblie"));
+				sms.setStatus(String.valueOf(rs.getInt("status")));
+				sms.setName(rs.getString("name"));
+			}
+		} catch (Exception e) {
+			sms = null;
+			logger.error(e.getLocalizedMessage(), e);
+		}
+		return sms;
+	}
+
+	@Override
+	public List<Smsuser> lsgetMobileByAtmId(Connection conn, String atmId, String type,
+			String level) {
+		List<Smsuser> SmsList = null;
+		Smsuser sms = null;
+		try {
+			String sql = "select moblie,status,name from Smsuser where bugtype="
+					+ type
+					+ " and solvetime="
+					+ level
+					+ " and atmids like '%"
+					+ atmId + "%'";
+			logger.info(sql);
+			ResultSet rs = conn.createStatement().executeQuery(sql);
+			SmsList = new ArrayList<Smsuser>();
+			while (rs.next()) {
+				sms = new Smsuser();
+				sms.setMoblie(rs.getString("moblie"));
+				sms.setStatus(String.valueOf(rs.getInt("status")));
+				sms.setName(rs.getString("name"));
+				SmsList.add(sms);
+			}
+		} catch (Exception e) {
+			sms = null;
+			logger.error(e.getLocalizedMessage(), e);
+		}
+		return SmsList;
+	}
+	
+	@Override
+	public void deleteMoblie(Connection conn, Smsuser user) {
+		String sql = "delete from Smsuser  where moblie='" + user.getMoblie()
+				+ "' and bugtype=" + user.getBugtype() + " and solvetime="
+				+ user.getSolvetime();
+		logger.info(sql);
+		try {
+			conn.createStatement().executeUpdate(sql);
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage(), e);
+		}
+	}
+
+	@Override
+	public Smsuser getMobileByAtmId(Connection conn, String atmId) {
+		Smsuser sms = null;
+		try {
+			String sql = "select moblie,status,name from Smsuser where status = 1 and atmids like '%"
+					+ atmId + "%'";
+			logger.info(sql);
+			ResultSet rs = conn.createStatement().executeQuery(sql);
+			
+			while (rs.next()) {
+				sms = new Smsuser();
+				sms.setMoblie(rs.getString("moblie"));
+				sms.setStatus(String.valueOf(rs.getInt("status")));
+				sms.setName(rs.getString("name"));
+			}
+		} catch (Exception e) {
+			sms = null;
+			logger.error(e.getLocalizedMessage(), e);
+		}
+		return sms;
+	}
+}

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<global-exceptions />
+	<global-forwards />
+	<action-mappings>
+		<action path="/index" parameter="method" scope="request"
+			name="atmForm" type="cn.sh.ae.action.IndexAction">
+			<forward name="atmstatecategoryImgsuccess"
+				path="/page/index/sbzttj.jsp" />
+			<forward name="tradestatecategoryImgsuccess"
+				path="/page/index/qtjylzst.jsp" />
+			<forward name="tradestatecategorysuccess"
+				path="/page/index/jylpm_.jsp" />
+			<forward name="indexinfosuccess"
+				path="/page/index/index.jsp" />
+		</action>
+		<action path="/user" parameter="method" scope="request"
+			name="userForm" type="cn.sh.ae.action.UserAction">
+			<forward name="success" path="/page/config/user.jsp" />
+			<forward name="setsuccess" path="/user.do?method=list" />
+			<forward name="byusernamesuccess"
+				path="/page/user/modifyuser.jsp" />
+			<forward name="loginsuccess"
+				path="/index.do?method=getIndexInfo" />
+			<forward name="loginerror" path="/page/login.jsp" />
+			<forward name="logoutsuccess" path="/page/login.jsp" />
+			<forward name="nopower" path="/page/view/nopower.jsp" />
+			<forward name="umsuccess"
+				path="/smsstatusconfig.do?method=all" />
+			<forward name="emsuccess"
+				path="/atmstatustitle.do?method=all" />
+			<forward name="cmsuccess" path="/page/cash/main.jsp" />
+			<forward name="sasuccess"
+				path="/atmids.do?method=getCashAtmId" />
+			<forward name="ctsuccess"
+				path="/atmids.do?method=getCheckId" />
+			<forward name="rmsuccess"
+				path="/atmids.do?method=getDownloadId" />
+			<forward name="scsuccess" path="/user.do?method=list" />
+		</action>
+
+		<action path="/atmstatus" parameter="method" scope="request"
+			name="atmForm" type="cn.sh.ae.action.AtmStateAction">
+			<forward name="allsuccessicon"
+				path="/page/monitor/atmstatusicon.jsp" />
+			<forward name="allsuccesslist"
+				path="/page/monitor/atmstatuslist.jsp" />
+			<forward name="byidsuccess"
+				path="/page/monitor/atmstatusinfo.jsp" />
+			<forward name="setaddresssuccess"
+				path="/atmcinfoconfig.do?method=all" />
+		</action>
+
+		<action path="/tradestatus" parameter="method" scope="request"
+			name="atmForm" type="cn.sh.ae.action.TradeStateAction">
+			<forward name="tradestatecategoryImgsuccess"
+				path="/page/index/qtjylzst.jsp" />
+		</action>
+
+		<action path="/atmstatustitle" parameter="method"
+			scope="request" name="changeForm"
+			type="cn.sh.ae.action.AtmStateAction">
+			<forward name="allsuccessicon"
+				path="/page/monitor/monitor.jsp" />
+			<forward name="allsuccesslist"
+				path="/page/monitor/monitor.jsp" />
+		</action>
+
+		<action path="/atmcompany" scope="request"
+			type="cn.sh.ae.action.AtmCompanyAction">
+			<forward name="successu" path="/page/remote/upload.jsp" />
+			<forward name="successd" path="/page/remote/download.jsp" />
+			<forward name="close" path="/page/view/close.jsp" />
+		</action>
+
+		<action path="/atmids" parameter="method" scope="request"
+			name="atmCompanyForm" type="cn.sh.ae.action.AtmIdAction">
+			<forward name="usuccess" path="/page/remote/upload.jsp" />
+			<forward name="rsuccess" path="/page/remote/reboot.jsp" />
+			<forward name="dsuccess" path="/page/remote/download.jsp" />
+			<forward name="csuccess" path="/page/statistics/cash.jsp" />
+			<forward name="checksuccess" path="/page/check/check.jsp" />
+			<forward name="snapShotsuccess"
+				path="/page/monitor/snapShot.jsp" />
+			<forward name="smssuccess" path="/page/sms/smsset.jsp" />
+			<forward name="tsuccess" path="/page/statistics/trade.jsp" />
+			<forward name="yxsuccess" path="/page/statistics/run.jsp" />
+			<forward name="reportsuccess" path="/reoprt" />
+			<forward name="close" path="/page/view/close.jsp" />
+		</action>
+
+		<action path="/reportxls" scope="request" name="drawForm"
+			type="cn.sh.ae.action.ExcelAction" />
+
+		<action path="/reportxls2" scope="request" name="drawForm"
+			type="cn.sh.ae.action.Excel2Action" />
+
+		<action path="/atmstatereportxls" scope="request"
+			name="changeForm" type="cn.sh.ae.action.AtmStateExcelAction" />
+
+		<!-- 远程模块 begin -->
+		<action path="/upload" scope="request" name="uploadForm"
+			type="cn.sh.ae.action.UploadAction">
+			<forward name="success"
+				path="/atmids.do?method=getUploadId" />
+		</action>
+
+		<action path="/download" scope="request" name="atmidForm"
+			type="cn.sh.ae.action.DownloadAction">
+			<forward name="success"
+				path="/atmids.do?method=getDownloadId" />
+		</action>
+
+		<action path="/snapShot" scope="request" name="uploadForm"
+			type="cn.sh.ae.action.snapShotAction">
+			<forward name="success" path="/page/monitor/snapShot.jsp" />
+		</action>
+
+		<action path="/reboot" scope="request" name="atmidForm"
+			type="cn.sh.ae.action.RebootAction">
+			<forward name="success"
+				path="/atmids.do?method=getRebootId" />
+		</action>
+		<!-- 远程模块 end -->
+
+		<action path="/atmpconfig" parameter="method" scope="request"
+			name="atmpconfigForm" type="cn.sh.ae.action.AtmpConfigAction">
+			<forward name="success" path="/page/config/atmpconfig.jsp" />
+			<forward name="setsuccess" path="/atmpconfig.do?method=all" />
+		</action>
+
+		<action path="/atmsetconfig" parameter="method" scope="request"
+			name="atmcsetForm" type="cn.sh.ae.action.AtmSetConfigAction">
+			<forward name="success" path="/page/config/server.jsp" />
+			<forward name="setsuccess" path="/atmcconfig.do?method=all" />
+		</action>
+
+		<action path="/atmcinfoconfig" parameter="method"
+			scope="request" name="atmcconfigForm"
+			type="cn.sh.ae.action.AtmcInfoConfigAction">
+			<forward name="success" path="/page/config/device.jsp" />
+			<forward name="setsuccess" path="/atmcconfig.do?method=all" />
+		</action>
+
+		<action path="/cash" scope="request" name="cashForm"
+			parameter="method" type="cn.sh.ae.action.CashAction">
+			<forward name="success" path="/page/statistics/cash.jsp" />
+		</action>
+
+		<action path="/cashReport" scope="request" name="cashForm"
+			parameter="method" type="cn.sh.ae.action.DownAddMoneyAction">
+		</action>
+
+		<action path="/check" scope="request" name="checkForm"
+			parameter="method" type="cn.sh.ae.action.CheckAction">
+			<forward name="success" path="/page/check/check.jsp">
+			</forward>
+		</action>
+
+		<action path="/reportCheck" scope="request" name="checkForm"
+			parameter="method" type="cn.sh.ae.action.CheckReportAction">
+		</action>
+
+		<action path="/statiform" scope="request" name="drawForm"
+			type="cn.sh.ae.action.StatiAction">
+			<forward name="success"
+				path="/page/statistics/statiform.jsp" />
+			<forward name="fault" path="/page/view/defaultmain.jsp" />
+		</action>
+
+		<action path="/statiform2" scope="request" name="drawForm"
+			type="cn.sh.ae.action.Stati2Action">
+			<forward name="success"
+				path="/page/statistics/statiform2.jsp" />
+			<forward name="fault" path="/page/view/defaultmain.jsp" />
+		</action>
+
+		<action path="/smsconfig" scope="request" parameter="method"
+			name="smsForm" type="cn.sh.ae.action.SmsAction">
+			<forward name="success" path="/page/sms/smsinfoconfig.jsp" />
+			<forward name="setsuccess"
+				path="/smsstatusconfig.do?method=all" />
+			<forward name="bymobliesuccess"
+				path="/page/sms/modifysms.jsp" />
+			<forward name="typesuccess" path="/page/sms/smsset.jsp" />
+		</action>
+
+		<action path="/smsstatusconfig" scope="request"
+			parameter="method" name="smsconfigForm"
+			type="cn.sh.ae.action.SmsConfigAction">
+			<forward name="success" path="/page/sms/smsconfig.jsp" />
+			<forward name="setsuccess"
+				path="/smsstatusconfig.do?method=all" />
+		</action>
+
+		<action path="/smsinfo" scope="request" parameter="method"
+			name="smsForm" type="cn.sh.ae.action.SmsInfoAction">
+			<forward name="success" path="/page/sms/smsinfo.jsp" />
+			<forward name="smsstatus" path="/page/sms/smstestsend.jsp" />
+			<forward name="testsmssend"
+				path="/smsinfo.do?method=getSmsSendStatus" />
+			<forward name="startsmssend"
+				path="/smsinfo.do?method=getSmsSendStatus" />
+
+		</action>
+
+		<action path="/infoconfig" scope="request" parameter="method"
+			name="infoForm" type="cn.sh.ae.action.InfoConfigAction">
+			<forward name="success" path="/page/config/message.jsp" />
+			<forward name="csuccess"
+				path="/infoconfig.do?method=allInfo" />
+		</action>
+	</action-mappings>
+	<message-resources
+		parameter="com.yourcompany.struts.ApplicationResources" />
+</struts-config>
+

@@ -1,0 +1,131 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+		<title>一级导航</title>
+		<style type="text/css">
+* {
+	font-size: 12px;
+}
+
+body {
+	margin:0;
+	padding: 0;
+	background-color: #FFFFFF;
+	font-size: 12px;
+	color: #666666;
+	font-family: "宋体", arial, Helvetica, sans-serif;
+}
+
+/*主导航菜单*/
+#menu ul {
+	padding: 0;
+	border: 0;
+	list-style: none;
+	line-height: 100%;
+	margin:0;
+}
+
+#menu_out {
+	width:90px; padding-top:20px; background: url(../../resources/source/menu/m_top.gif) no-repeat left top; margin-top:39px;
+}
+
+#menu_in {
+	width:90px; padding-bottom:20px; background: url(../../resources/source/menu/m_bot.gif) no-repeat left bottom;
+}
+
+.zwh{ height:40px; background:#1a92d5; border-left:1px solid #012b67;}
+#menu {
+}
+
+
+#nav {
+}
+
+#nav li {
+	background: url(../../resources/source/menu/menu_on_left.gif) repeat-x left top; border-left:1px solid #012b67;
+}
+
+#nav li a {
+	display: block;
+	padding-left: 6px;
+	height: 35px;
+
+	cursor: pointer;
+	text-decoration: none;
+
+}
+
+#nav li a span {
+	float:right;
+	padding: 11px 10px 10px 10px;
+	line-height: 14px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+	vertical-align:middle;
+}
+ /*鼠标经过时变换背景*/
+
+#nav li a:hover span {	background: url(../../resources/source/menu/menu_on_right_h.gif) no-repeat left top;
+	color: #333333;
+	text-decoration: none;
+	padding: 11px 10px 10px 10px;}
+ /*鼠标经过时变换背景*/
+
+#nav li .nav_on span {
+	background: url(../../resources/source/menu/menu_on_right_h.gif) no-repeat left top;
+	color: #333333;
+	text-decoration: none;
+	padding: 11px 10px 10px 10px;
+}
+
+</style>
+
+
+	</head>
+	<body>
+		<div id="menu_out">
+			<div id="menu_in">
+				<div id="menu">
+					<ul id="nav">
+						<li>
+							<a href="#" class="nav_on"><span style="padding-left:22px; padding-right:20px;">首 页</span> </a>
+						</li>
+						<li>
+							<a href="#" class="nav_off"><span>状态监控</span>
+							</a>
+						</li>
+						<li>
+							<a href="#"><span>统计分析</span> </a>
+						</li>
+						<li>
+							<a href="#"><span>远程管理</span>
+							</a>
+						</li>
+						<li>
+							<a href="#"><span>对账管理</span>
+							</a>
+						</li>
+						<li>
+							<a href="#"><span>短信管理</span>
+							</a>
+						</li>
+						<li>
+							<a href="#"><span>系统管理</span>
+							</a>
+						</li>
+
+					</ul>
+					
+				</div>
+				<div class="zwh"></div>
+			</div>
+		</div>
+
+
+
+	</body>
+</html>

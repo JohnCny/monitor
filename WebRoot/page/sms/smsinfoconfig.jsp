@@ -1,0 +1,387 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
+<%@ taglib prefix="tiles" uri="/WEB-INF/struts-tiles.tld"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<base href="<%=basePath%>">
+		<title></title>
+		<link href="resources/source/tablecloth.css" rel="stylesheet"
+			type="text/css" media="screen" />
+		<script type="text/javascript" src="resources/scripts/jquery-1.6.js"></script>
+		<script type="text/javascript" src="resources/scripts/MyJs.js"></script>
+		<style type="text/css">
+			/*当前栏目效果*/
+			#box_m{width:1200px;margin:0 auto;}
+			#box_nav{float:left; width:90px;}
+			#box_nav_s{float:left; widows:1000px;}
+		</style>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$("#setsmsuser").click(function(){
+			    $("#ly")[0].style.display="block";
+				$("#ly")[0].style.width=document.body.clientWidth;
+				$("#ly")[0].style.height=document.body.clientHeight;
+				$("#Layer2")[0].style.display='block';
+			      
+			});
+			
+			$('#selecterror').change(function(){
+				 var value=$(this).children('option:selected').val();
+        		 $.ajax({
+                 url:'smsconfig.do?method=getAtmIdByType&type='+value, 
+                 type: 'get',
+                 cache:false,
+                 timeout: 2000,
+                 error: function(){
+                    alert('错误');
+                 },
+                success: function(json){
+                	
+				var users = eval('(' + json + ')');
+                
+                var table_="<table cellspacing='0' cellpadding='0'>"+
+                			"<tr><td>设备列表</td></tr>"+
+                			"<tr><td><select style='width: 200px;' multiple size='15' id='select2'>";
+                 $.each(users,function(i, user){
+                 	table_+="<option>"+user+"</option>";
+					});					
+					table_+="</select></td></tr></table>";
+				$("#devicelist").html(table_); 
+				
+                }
+         });
+    		});
+			
+			
+			/////////////////////////////////////////////
+			$('.modifysmsuser').click(function(){
+			var value_1=$(this).attr("id")
+      		var value_2=$(this).attr("name");
+        		 $.ajax({
+                 url:'smsconfig.do?method=getByMoblie&id='+value_1+'&bugtype='+value_2, 
+                 type: 'get',
+                 cache:false,
+                 timeout: 2000,
+                 error: function(){
+                    alert('错误');
+                 },
+                success: function(json){
+                	
+				var users = eval('(' + json + ')');
+				
+				var modifysmsuserdiv="<table cellspacing='0' cellpadding='0'  style='width: 800px'>"+
+					"<tr><th colspan='2'>编辑短信用户	</th></tr>"+
+					"<tr><td valign='top'><table cellspacing='0' cellpadding='0'>"+
+					"<form action='smsconfig.do?method=modify' method='post'>"+
+					"<tr><td>故障通知类型：</td><td>"
+                var l=0;
+                $.each(users,function(i, user){
+					if(i==0)
+						modifysmsuserdiv+="<input type='text' value='"+(user==1?'设备故障':user==2?'业务故障':user==3?'设备故障超时':user==4?'业务故障超时':'')+"' size='15'  style='width:100%' readonly='readonly' /><input type='hidden' name='bugtype' value='"+user+"' /></td></tr>"
+					if(i==1){
+						l=user;
+						modifysmsuserdiv+="<tr><td>负责设备：</td><td><select name='atmids' style='width: 170px;' multiple size='15' id='select1'>"
+					}
+					if(i>1&&i<=Number(l)+1)
+						modifysmsuserdiv+="<option>"+user+"</option>"
+					if(i==Number(l)+2)
+						modifysmsuserdiv+="</select></td><td><input type='button' value='》》' 	onclick='DoAdd();' /><br><input type='button' value='《《' onclick='DoDel();' /></td></tr><tr align='center' class='front_dbt'><td align='right'>手机号：</td><td><input id='moblie' type='text' name='moblie' size='20' value='"+user+"' style='width:100%'	onkeyup='value=value.replace(/[^\d]/g,'') '	onbeforepaste='clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))' />"
+					if(i==Number(l)+3)
+						modifysmsuserdiv+="<input type='hidden' value='"+user+"' name='moblie_old' /></td></tr>"
+					if(i==Number(l)+4)
+						modifysmsuserdiv+="<tr><td>姓名：</td><td><input type='text' name='name' value='"+user+"' size='20' style='width:100%' /></td></tr>"
+					if(i==Number(l)+5)
+						modifysmsuserdiv+="<tr><td>状态：</td><td><select name='status' style='width:100%'><option "+(user==0?'selected':'')+" value='0'>注销</option><option "+(user==1?'selected':'')+" value='1'>启用</option></select></td></tr><tr><td colspan='2'><input type='button' value='修改' onclick='addsms();' />	</td></tr></form></table></td><td  valign='top'><table cellpadding='0' cellspacing='0'><tr><td>设备列表</td></tr><tr><td><select style='width: 200px;' multiple size='15' id='select2'>"
+					if(i>Number(l)+5)
+						modifysmsuserdiv+="<option>"+user+"</option>"
+					});	
+					modifysmsuserdiv+="</select></td></tr></table></td></tr></table>"; 
+					
+				$("#modifysmsuserdiv").html(modifysmsuserdiv);
+									
+               }
+         });
+         $("#ly")[0].style.display="block";
+				$("#ly")[0].style.width=document.body.clientWidth;
+				$("#ly")[0].style.height=document.body.clientHeight;
+				$("#Layer2")[0].style.display='block';
+    		});
+		});
+		
+
+function Lock_CheckForm(){
+document.all.ly.style.display='none';
+document.all.Layer2.style.display='none';
+location.replace("smsconfig.do?method=all");    
+return false;
+}
+</script>
+	</head>
+
+	<body style="text-align: center; background: #E6EAE9;">
+	<div id="box_m">
+		<div id="box_nav">
+			<tiles:insert page="../../page/view/left_main.jsp" flush="false" />
+		</div>
+		<div id="box_nav_s">
+			<tiles:insert page="../../page/view/top_sub.jsp" flush="false" />
+		<div style="clear:both"></div>
+		<div>
+		<table cellspacing="0" cellpadding="0" style="width: 1000px;">
+			<tr>
+				<td colspan="2">
+					<!--<tiles:insert page="../../page/view/topmenu.jsp" flush="false" />-->
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div align="right">
+						<a id="setsmsuser" href="javascript:void(0);">创建用户 </a>|
+						<a href="smsconfig.do?method=all">刷新</a>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<div id="doc">
+						<div class="fixTh" style="text-align: left;">
+							<table cellspacing="0" cellpadding="0" style="width: 98.5%">
+								<tr>
+									<th width="16%">
+										姓名
+									</th>
+									<th width="16%">
+										手机号
+									</th>
+									<th width="26%">
+										负责设备号
+									</th>
+									<th width="16%">
+										通知类型
+									</th>
+									<!-- <th width="14%">
+						修复时间
+					</th> -->
+									<th width="16%">
+										状态
+									</th>
+									<th width="10%">
+										操作
+									</th>
+								</tr>
+							</table>
+							<div class="tc" style="height: 470px">
+								<logic:present name="smsuser">
+									<table cellspacing="0" cellpadding="0">
+										<logic:iterate id="tlr" name="smsuser">
+											<tr>
+												<td width="16%">
+													<bean:write name="tlr" property="name" />
+												</td>
+
+												<td width="16%">
+													<bean:write name="tlr" property="moblie" />
+												</td>
+												<td width="26%">
+
+													<bean:write name="tlr" property="atmids" filter="false" />
+												</td>
+												<td width="16%">
+													<logic:equal name="tlr" property="bugtype" value="1">
+								设备故障
+							</logic:equal>
+													<logic:equal name="tlr" property="bugtype" value="2">
+								业务故障
+							</logic:equal>
+													<logic:equal name="tlr" property="bugtype" value="3">
+								设备故障超时
+							</logic:equal>
+													<logic:equal name="tlr" property="bugtype" value="4">
+								业务故障超时
+							</logic:equal>
+												</td>
+												<!-- <td>
+								<bean:write name="tlr" property="solvetime" />
+							</td> -->
+												<td width="16%">
+													<logic:equal name="tlr" property="status" value="1">
+														<font color="#00DB00">启用</font>
+													</logic:equal>
+													<logic:equal name="tlr" property="status" value="0">
+														<font color="#FF0000">注销</font>
+													</logic:equal>
+												</td>
+												<td width="10%">
+													<a class="modifysmsuser" href="javascript:void(0);"
+														name="${tlr.bugtype}" id="${tlr.moblie}">编辑</a>
+													<a
+														href="smsconfig.do?method=deleteMoblie&id=${tlr.moblie}&bugtype=${tlr.bugtype}">删除</a>
+												</td>
+											</tr>
+										</logic:iterate>
+									</table>
+								</logic:present>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+
+		<div id="ly"
+			style="position: absolute; top: 0px; filter: alpha(opacity =                                                                                                 60); background-color: #777; z-index: 2; left: 0px; display: none;">
+		</div>
+		<div id="Layer2" align="center"
+			style="position: absolute; z-index: 3; width: 300; left: expression((                                     document .                                     body .                                     offsetWidth-800)/ 2 ); top: 80px; background-color: #fff; display: none;">
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<td id="modifysmsuserdiv">
+						<table cellspacing="0" cellpadding="0" style="width: 800px">
+							<tr>
+								<th colspan="2">
+									短信用户注册
+								</th>
+							</tr>
+							<tr>
+								<td valign="top">
+									<table id="mytable" cellspacing="0">
+										<html:form action="smsconfig.do?method=set" method="post">
+											<tr align="center">
+												<td align="right">
+													故障通知类型：
+												</td>
+												<td align="left">
+													<html:select property="bugtype" style="width:100%"
+														styleId="selecterror">
+														<html:option value="0">请选择...</html:option>
+														<html:option value="1">设备故障</html:option>
+														<html:option value="2">业务故障</html:option>
+														<html:option value="3">设备故障超时</html:option>
+														<html:option value="4">业务故障故障</html:option>
+
+													</html:select>
+												</td>
+											</tr>
+											<tr align="center">
+												<td align="right">
+													负责设备：
+												</td>
+												<td>
+													<html:select property="atmids" style="width:170px"
+														multiple="true" size="15" styleId="select1">
+													</html:select>
+												</td>
+												<td>
+													<input type="button" value="》》" onclick="DoAdd();" />
+													<br>
+													<input type="button" value="《《" onclick="DoDel();" />
+												</td>
+											</tr>
+											<tr align="center">
+												<td align="right">
+													手机号：
+												</td>
+												<td align="left">
+													<input id="moblie" type="text" name="moblie" size="20"
+														style="width: 100%"
+														onkeyup="value=value.replace(/[^\d]/g,'') "
+														onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
+												</td>
+											</tr>
+											<tr>
+												<td align="right">
+													姓名：
+												</td>
+												<td align="left">
+													<html:text property="name" size="20" style="width: 100%" />
+												</td>
+											</tr>
+											<!-- <tr align="center">
+					<td align="right">
+						故障修复时间：
+					</td>
+					<td align="left">
+						<html:text property="solvetime" size="20" />
+					</td>
+				</tr> -->
+											<tr>
+												<td align="right">
+													状态：
+												</td>
+												<td>
+													<html:select property="status" style="width:100%">
+														<html:option value="0">注销</html:option>
+														<html:option value="1">启用</html:option>
+													</html:select>
+												</td>
+											</tr>
+											<tr align="center">
+												<td colspan="2">
+													<html:button property="" value="添加" onclick="addsms();" />
+													<input type="button" value="关闭" onclick="Lock_CheckForm();">
+
+												</td>
+											</tr>
+										</html:form>
+									</table>
+								</td>
+								<td valign="top" id="devicelist">
+									<table cellpadding="0" cellspacing="0">
+										<tr>
+											<td>
+												设备列表
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<select style="width: 200px;" multiple size="15"
+													id="select2">
+													<option>
+													</option>
+												</select>
+											</td>
+										</tr>
+									</table>
+
+								</td>
+							</tr>
+						</table>
+
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<input type="hidden" id="hidden" value="5" />
+		</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+		<!--
+		function addsms(action){
+		if(document.getElementById('moblie').value==""){
+      		alert("请输入手机号！");
+      		return false;
+   		}
+   		var select=document.getElementById('select1');
+   		for(var i=0;i<select.length;i++){
+			select.options[i].selected=true;
+		}
+		document.forms[0].submit();
+		}
+		
+		
+		//-->
+		</script>

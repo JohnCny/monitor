@@ -1,0 +1,650 @@
+package cn.sh.ae.manage;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStreamReader;
+import java.io.Serializable;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
+import org.apache.log4j.Logger;
+
+import cn.sh.ae.comm.Down;
+import cn.sh.ae.comm.moblie.SmsSender;
+import cn.sh.ae.tools.FtpClient;
+import cn.sh.ae.tools.LogReader;
+import cn.sh.ae.util.MyConstant;
+import cn.sh.ae.util.MyFile;
+import cn.sh.ae.util.MyTime;
+import cn.sh.ae.vo.Atm;
+import cn.sh.ae.vo.Atmhistory;
+import cn.sh.ae.vo.Atmp;
+import cn.sh.ae.vo.Atmtradata;
+import cn.sh.ae.vo.Ejr;
+import cn.sh.ae.vo.Host;
+import cn.sh.ae.vo.Sms;
+import cn.sh.ae.vo.SmsInfo;
+import cn.sh.ae.vo.Smsuser;
+
+public class WorkManager implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2784076355178029935L;
+
+	static Logger logger = Logger.getLogger(WorkManager.class.getName());
+
+	/**
+	 * 获取远程数据库atm变化的状态，并对本地数据库更新，同时更新状态历史表已近发送短信给相关人员
+	 */
+	public static void sycnLocalDB(ServerSocket ssocket) {
+		logger.info("开始同步数据");
+		Socket socket = null;
+		try {
+			while (true) {
+				socket = ssocket.accept();
+				// logger.info(socket.getRemoteSocketAddress() + "接入");
+				new Thread(new MsgToData(socket)).start();
+			}
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage(), e);
+		}
+	}
+
+	/**
+	 * 从文件中读取交易量并保存数据库
+	 */
+	public static void mgrtLocalDB() {
+		/** FTP远程路径 */
+		Atmp atmp = DataManager.getAtmpStatus();
+
+		FtpClient ftp = new FtpClient(atmp);
+		ftp.ftpConnect();
+		ftp.downloadFile();
+		ftp.ftpClose();
+
+		File localFile = MyFile.getFile(atmp.getMgrtpath());
+		if (MyFile.isExist(localFile)) {
+			// 持久化数据
+			DataManager.setAtmTradata(LogReader.saveLogToBase(localFile));
+			// 备份本地文件
+			MyFile.backUpFile(localFile);
+		}
+		localFile = MyFile.getFile(atmp.getMgrtpath() + "_1");
+		if (MyFile.isExist(localFile)) {
+			// 持久化数据
+			DataManager.setAtmTradata_1(LogReader.saveLogToBase_1(localFile));
+			// 备份本地文件
+			MyFile.backUpFile(localFile);
+		}
+		// logger.info("更新本地状态表");
+		// // 获取更新文件路劲
+		// String path = DataManager.getAtmpStatus().getMgrtpath();
+		// DataManager.setAtmTradata(LogReader.saveLogToBase(path));
+	}
+
+	/**
+	 * 手动下载文件
+	 */
+	public static void DownFile(List<Atm> atmAddressList, String filePath) {
+		int size = atmAddressList.size();
+		if (size > 0) {
+			Host host = null;
+			for (int i = 0; i < size; i++) {
+				host = new Host();
+				host.setIp(atmAddressList.get(i).getIp());
+				host.setPort(Integer.parseInt(atmAddressList.get(i).getPort()));
+				String timeout = atmAddressList.get(i).getTimeout();
+
+				host.setTimeout((timeout == null || timeout.equals("")) ? 10000
+						: Integer.parseInt(timeout));
+				String[] remPaths = filePath.split("\\\\");
+
+				host.setLocalRoute(filePath);
+				host.setFileName(remPaths[remPaths.length - 1]);
+				// logger.info("日志下载路径：" + filePath);
+				// logger.info("日志保存路径：" + MyConstant.TEMPPATH+"aaa.txt");
+				host.setRemoteRoute(MyConstant.TEMPPATH);
+				new Down(host).run();
+			}
+		}
+
+	}
+
+	/**
+	 * 自动下载文件
+	 */
+	public static void autoDownEjr(List<Atm> atmAddressList, String date,
+			String type, boolean sync) {
+		// List<Atm> atmAddressList = DataManager.getAtmList();
+		int size = atmAddressList.size();
+		if (size > 0) {
+			try {
+				Host host = null;
+				for (int i = 0; i < size; i++) {
+					String ip = atmAddressList.get(i).getIp();
+					String port = atmAddressList.get(i).getPort();
+					String route = atmAddressList.get(i).getEjr();
+					if (type != null && type.equals("2"))
+						route = atmAddressList.get(i).getTracepath();
+					String timeout = atmAddressList.get(i).getTimeout();
+					if (ip != null && !ip.equals("") && port != null
+							&& !port.equals("") && route != null
+							&& !route.equals("")) {
+						host = new Host();
+						host.setIp(ip);
+						host.setPort(Integer.parseInt(port));
+						host
+								.setTimeout((timeout == null || timeout
+										.equals("")) ? 10000 : Integer
+										.parseInt(timeout));
+						if (date == null)
+							date = MyTime.getPreDate("yyyyMMdd");
+						route += date + File.separator + "Trans.jrn";
+
+						host.setLocalRoute(route);
+						String localRoute = MyConstant.ATMLOGPATH + date
+								+ File.separator;
+						host.setFileName(atmAddressList.get(i).getAtmid());
+						// logger.info("日志下载路径：" + localRoute);
+						// logger.info("日志保存路径：" + route);
+						host.setRemoteRoute(localRoute);
+						if (sync)
+							new Down(host).run();
+						else
+							new Thread((new Down(host))).start();
+					}
+				}
+			} catch (Exception e) {
+				logger.error(e.getLocalizedMessage(), e);
+			}
+		}
+	}
+
+	/**
+	 * 对账
+	 */
+	public static HashMap<String, List<Ejr>> getCheckEjrAndDb(
+			List<String> atmIdList, String time) {
+		HashMap<String, List<Ejr>> map = new HashMap<String, List<Ejr>>();
+		// 获取可对账的日志列表
+		String date = null;
+
+		if (time == null || time.equals(""))
+			date = MyTime.getPreDate("yyyyMMdd");
+		else
+			date = MyTime.getFormatDate(time, "yyyy-MM-dd", "yyyyMMdd");
+		File[] files = null;
+		String path = MyConstant.ATMLOGPATH + date + File.separator;
+		if (atmIdList == null || atmIdList.isEmpty())
+			files = MyFile.getFileList(path);
+		else {
+			int size = atmIdList.size();
+			files = new File[size];
+			for (int i = 0; i < size; i++) {
+				files[i] = MyFile.getFile(path + atmIdList.get(i));
+			}
+		}
+
+		List<Ejr> ejrList = null;
+		Ejr ejr = null;
+		float allRmb_c = 0, allRmb_p = 0;
+		List<Ejr> ejrTradataList = null;
+
+		for (int i = 0; i < files.length; i++) {
+			File file = files[i];
+			// 设备编号
+			String atmId = file.getName();
+			if (file != null && file.length() != 0) {
+				logger.info("需要对账的机器：" + path + atmId);
+				// 获取某天的交易情况
+				List<Atmtradata> tradataList = DataManager.getAtmTradataByTime(
+						atmId, time);
+				if (tradataList != null && !tradataList.isEmpty()
+						&& tradataList.size() != 0) {
+					// 厂商
+					// String company =
+					// DataManager.getAtmById(atmId).getCompany();
+
+					// 如果找到后台记录情况，根据不同的厂商解析流水
+					ejrTradataList = DataManager.getTradataFromEjr(file);
+
+					logger.info("开始对账");
+					// 标志匹配项
+					if (ejrTradataList != null && !ejrTradataList.isEmpty()
+							&& ejrTradataList.size() != 0) {
+						logger.info("文件：" + ejrTradataList.size());
+						logger.info("数据库：" + tradataList.size());
+						for (Atmtradata tradata : tradataList) {
+							atmId = tradata.getAtmid();
+							String cardNoDb = tradata.getCardno().trim();
+							float tradataRmbDb = tradata.getTradermb();
+							for (Ejr ejrTradata : ejrTradataList) {
+								String cardNoDbEjr = ejrTradata.getCardNo()
+										.trim();
+								float tradataRmbDbEjr = ejrTradata
+										.getTradermb();
+								// 标志匹配交易
+								if (cardNoDb.equals(cardNoDbEjr)
+										&& tradataRmbDb == tradataRmbDbEjr) {
+									tradata.setCardno("0");
+									ejrTradata.setCardNo("0");
+									break;
+								}
+							}
+						}
+
+						// 分别记录流水和后台不匹配项
+						ejrList = new ArrayList<Ejr>();
+						for (Atmtradata tradata : tradataList) {
+							allRmb_p += tradata.getTradermb();
+							if (!tradata.getCardno().equals("0")) {
+								ejr = new Ejr();
+								ejr.setCardNo(tradata.getCardno());
+								ejr.setTradetime_db(MyTime.getFormatDate(
+										tradata.getTradehour(), "HHmmss",
+										"HH:mm:ss"));
+								ejr.setTradermb_db(tradata.getTradermb());
+								ejrList.add(ejr);
+							}
+						}
+						for (Ejr ejrTradata : ejrTradataList) {
+							if (ejrTradata.getCardNo().equals("-1"))
+								allRmb_c = ejrTradata.getTradermb();
+							else if (!ejrTradata.getCardNo().equals("0")) {
+								ejr = new Ejr();
+								ejr.setCardNo(ejrTradata.getCardNo());
+								ejr.setTradetime(ejrTradata.getTradetime());
+								ejr.setTradermb(ejrTradata.getTradermb());
+								ejr.setInput(ejrTradata.getInput());
+								ejr.setDispense(ejrTradata.getDispense());
+								ejr.setReject(ejrTradata.getReject());
+								ejr.setTradermb(ejr.getTradermb());
+								ejrList.add(ejr);
+							}
+						}
+
+						map.put(atmId + "," + allRmb_c + "," + allRmb_p + ","
+								+ (allRmb_p - allRmb_c), ejrList);
+						allRmb_c = 0;
+						allRmb_p = 0;
+					} else {
+						map.put(atmId + ":" + "当天ATM流水下载错误", null);
+					}
+				} else {
+					map.put(atmId + ":" + "当天无后台交易记录", null);
+				}
+			} else {
+				map.put(atmId + ":" + "无当天ATM流水", null);
+			}
+		}
+
+		return map;
+	}
+
+	public static void setLineStatus() {
+		logger.info("开始系统网络检测");
+		String subTime = MyTime
+				.subTimeByTime(MyTime.getTime("yyMMddHHmmss"), Long
+						.parseLong(DataManager.getAtmcStatus()
+								.getNetmonitortime()) * 1000 * 60,
+						"yyMMddHHmmss");
+		logger.info("阀值时间:" + subTime);
+		List<Atm> atmList = DataManager.getNoNetBugAtmList();
+		// List<Atm> atmList = DataManager.getOutimeLinestatus(subTime);
+		logger.info("监测设备数:" + atmList.size());
+		for (Atm atm : atmList) {
+			logger.info("接受报文时间:" + atm.getTradetime());
+			if (Long.parseLong(atm.getTradetime()) < Long.parseLong(subTime)) {
+				logger.info("无报文设备:" + atm.getAtmid());
+				atm.setLinestatus("1");
+				atm.setPrjstatus(null);
+				atm.setPrrstatus(null);
+				atm.setCdmstatus(null);
+				atm.setDepstatus(null);
+				atm.setReaderstatus(null);
+				atm.setPartrmb(null);
+				// if (!CommFactory.ping(atm.getIp(), Integer.parseInt(atm
+				// .getPort()))) {
+				// logger.info("无报文后连接不成功设备:" + atm.getAtmid());
+				DataManager.setAtmLinestatus(atm.getAtmid());
+				DataManager.setAtmHistory(atm);
+				// }
+			}
+		}
+		// DataManager.setAtmLinestatus(subTime);
+		// List<Atm> atmList = DataManager.getAtmList();
+		// List<Atm> atmList_1 = new ArrayList<Atm>();
+		// Atm atm_1 = null;
+		// for (Atm atm : atmList) {
+		// String atmId = atm.getAtmid();
+		// atm_1 = new Atm();
+		// String linestatus = "1";
+		// String ip = atm.getIp();
+		// String port = atm.getPort();
+		// if (ip != null && !ip.equals("") && port != null
+		// && !port.equals("")) {
+		// if (CommFactory.ping(ip, Integer.parseInt(port))) {
+		// linestatus = "0";
+		// }
+		// }
+		// atm_1.setAtmid(atmId);
+		// atm_1.setLinestatus(linestatus);
+		// atmList_1.add(atm_1);
+		// }
+		// DataManager.setAtmLinestatus(atmList_1);
+	}
+
+	public static boolean sendSmsFlag = false;
+
+	/** 启动短信猫 */
+	public static boolean startGSMModem() {
+		SmsSender smsSender = SmsSender.getInstance(); // 运行实例
+		if (smsSender != null) {
+			try {
+				// 句容
+				smsSender.connect("COM1");
+				// 姜堰
+				// smsSender.connect("COM6");
+				sendSmsFlag = true;
+			} catch (Exception e) {
+				logger.error(e.getLocalizedMessage(), e);
+			}
+		} else {
+			logger.error("端口以被占用");
+		}
+		return sendSmsFlag;
+	}
+
+	/** 关闭短信猫 */
+	public static void stopGSMModem() {
+		SmsSender smsSender = SmsSender.getInstance(); // 运行实例
+		try {
+			smsSender.close();
+			sendSmsFlag = false;
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage(), e);
+		}
+	}
+
+	/** 发送短信 */
+	public static void sendSms(String phone, String sendStr) {
+		SmsSender smsSender = SmsSender.getInstance(); // 运行实例
+		try {
+			smsSender.sendSms(phone, sendStr);
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage(), e);
+		}
+	}
+
+	public static Queue<SmsInfo> smsQueue = new LinkedList<SmsInfo>();
+
+	// 添加短信队列
+	public static void setTimingSms() {
+		// 当短信猫启动成功时短信入队列
+		logger.info("添加短信队列启动");
+		while (sendSmsFlag) {
+			if (MyTime.getDate().getHour() > 6
+					&& MyTime.getDate().getHour() < 21) {
+				try {
+					Thread.sleep(300000);
+					Sms ss = DataManager.getSmsStatus();
+					if (ss.getSmsstatus() != null
+							&& ss.getSmsstatus().equals("1")) {
+						String fir = ss.getFirsttime();
+						String sec = ss.getSecondtime();
+						String thi = ss.getThirdtime();
+						List<Atm> atmList = DataManager.getSendBugAtm();
+						SmsInfo smsInfo = null;
+						for (Atm atm : atmList) {
+							String atmId = atm.getAtmid();
+							String type = atm.getType();
+							String level = atm.getAesyspath();
+							// 通过设备ID、故障类型和发送级别找到对应的手机用户
+							Smsuser smsUser = DataManager.getSmsMobile(atmId,
+									type, level);
+							// 判断级别时间时候满足
+							int timeout = MyTime.subTime(atm.getTimeout(),
+									MyTime.getTime("yyyyMMddHHmmss"),
+									"yyyyMMddHHmmss");
+							boolean levelFlag = false;
+							if (level.equals("1")
+									&& (timeout >= Integer.parseInt(fir)))
+								levelFlag = true;
+							else if (level.equals("2")
+									&& (timeout >= Integer.parseInt(sec)))
+								levelFlag = true;
+							else if (level.equals("3")
+									&& (timeout >= Integer.parseInt(thi)))
+								levelFlag = true;
+
+							// 判断改用户是否存在且是否被注销
+							if (smsUser != null && smsUser.getStatus() != null
+									&& smsUser.getStatus().equals("1")) {
+								if (levelFlag) {
+									String sendPhone = smsUser.getMoblie();
+									if (sendPhone != null
+											&& !sendPhone.equals("")) {
+										smsInfo = new SmsInfo();
+										smsInfo.setSmsNo(sendPhone);
+										smsInfo.setSmsName(smsUser.getName());
+										// 组装短信
+										String sendMsg = atmId
+												+ "-"
+												+ atm.getCompany()
+												+ "-"
+												+ atm.getRoute()
+												+ "-"
+												+ atm.getAddr()
+												+ ","
+												+ atm.getAllstatus()
+												+ (type.equals("2") ? "取款箱金额小于300张"
+														: type.equals("3") ? "存款箱金额大于1500张"
+																: "故障");
+										smsInfo.setSmsMsg(sendMsg);
+
+										smsQueue.offer(smsInfo);
+										// 入列后发送类型+1
+										Atmhistory atmhistory = new Atmhistory();
+										atmhistory.setConstant(String
+												.valueOf((Integer
+														.parseInt(level) + 1)));
+										atmhistory.setAtmId(atmId);
+										atmhistory.setBugId(atm.getEjr());
+										atmhistory.setBugBeg(atm.getTimeout());
+										atmhistory.setSendType(level);
+										DataManager.setSendType(atmhistory);
+										logger.info("短信入列" + sendMsg);
+									}
+								}
+							}
+						}
+					}
+
+					// /** 余额检测 开始*/
+					// List<Atm> moneyValidaAtms =
+					// DataManager.getMoneyValidAtm();
+					//					
+					// SmsInfo smsInfo = null;
+					// for(Atm atm : moneyValidaAtms){
+					//						
+					// Smsuser smsUser =
+					// DataManager.getSmsMobile(atm.getAtmid());
+					//						
+					// String sendPhone = smsUser.getMoblie();
+					//						
+					// Atmhistory atmhistory =
+					// DataManager.getMoneyValidAtmHistory(atm.getAtmid());
+					//						
+					// if
+					// ((null==atmhistory||!"2".equals(atmhistory.getSendType()))
+					// &&sendPhone != null && !"".equals(sendPhone)){
+					//							
+					// smsInfo = new SmsInfo();
+					// smsInfo.setSmsNo(sendPhone);
+					// smsInfo.setSmsName(smsUser.getName());
+					// // 组装短信
+					// StringBuffer sendMsg = new StringBuffer();
+					//							
+					// sendMsg.append(atm.getAtmid()).append("-")
+					// .append(atm.getCompany()).append("-")
+					// .append(atm.getAddr());
+					//							
+					// try {
+					// if(Integer.parseInt(atm.getPartrmb())
+					// <Integer.parseInt(atm.getMaxoutmoney())){
+					// sendMsg.append(",取款钞箱金额：").append(atm.getPartrmb()).append("，金额已低于预警金额，请加钞。");
+					// }
+					// if(Integer.parseInt(atm.getDepormb())
+					// >Integer.parseInt(atm.getMaxinmoney())){
+					// sendMsg.append(",存款钞箱金额：").append(atm.getDepormb()).append("，金额已超过预警金额，请清机。");
+					// }
+					// } catch (NullPointerException e) {
+					// logger.error(e.getLocalizedMessage(), e);
+					// continue;
+					// }
+					//								
+					// smsInfo.setSmsMsg(sendMsg.toString());
+					// smsQueue.offer(smsInfo);
+					// if(null==atmhistory){
+					// DataManager.saveMoneyValidAtmHistory(atm.getAtmid());
+					// }else if(!"2".equals(atmhistory.getBugType())){
+					// DataManager.updateMoneyValidAtmHistory(atm.getAtmid());
+					// }
+					// logger.info("短信入列");
+					//						
+					// }
+					//						
+					// }
+					//					
+					// /** 余额检测 结束 */
+				} catch (Exception e) {
+					logger.error(e.getLocalizedMessage(), e);
+				}
+			}
+		}
+	}
+
+	// 短信发送
+	public static void sendSms() {
+		while (sendSmsFlag) {
+			try {
+				Thread.sleep(1000);
+				if (smsQueue != null && !smsQueue.isEmpty()) {
+					SmsInfo sms = smsQueue.poll();
+					String phoneNo = sms.getSmsNo();
+					String phoneMsg = sms.getSmsMsg();
+					sendSms(phoneNo, phoneMsg);
+					String phoneDate = MyTime.getTime("yyyy-MM-dd HHmmss");
+					sms.setSmsDate(phoneDate);
+					DataManager.setSmsinfo(sms);
+				}
+			} catch (Exception e) {
+				logger.error(e.getLocalizedMessage(), e);
+			}
+		}
+	}
+
+	public static void setDayCheck() {
+		logger.info("开始记录对账数据");
+		List<Atm> listAtm = DataManager.getAtmList(0);
+		DataManager.setDayCheck(listAtm);
+	}
+}
+
+/**
+ * 报文接受解包
+ */
+class MsgToData implements Runnable {
+	static Logger logger = Logger.getLogger(MsgToData.class.getName());
+
+	// private String message = null;
+	private Atm atm = null;
+	private Socket socket = null;
+	private BufferedReader reader = null;
+
+	public MsgToData(Socket socket) {
+		this.socket = socket;
+		// this.message = message;
+	}
+
+	private void setMsgToDb() {
+		if (this.socket != null) {
+			try {
+				while (true) {
+					reader = new BufferedReader(new InputStreamReader(socket
+							.getInputStream()));
+					String message = null;
+					if ((message = reader.readLine()) != null) {
+						// logger.info("报文：" + message);
+						String[] msg = message.split("#");
+						atm = new Atm();
+						String tradeTime = MyTime.getTime("yyMMddHHmmss");
+						// 除状态报文以外的报文只要更新时间和线路
+						atm.setAtmid(msg[0]);
+						atm.setTradetime(tradeTime);
+
+						String prjstatus = msg[1].substring(0, 1);
+						String prrstatus = msg[1].substring(1, 2);
+						String readerstatus = msg[1].substring(2, 3);
+						String depstatus = msg[1].substring(3, 4);
+						String cdmstatus = msg[1].substring(4, 5);
+						String box = msg[1].substring(5);
+
+						atm.setDemstatus("0");
+						atm.setPrjstatus(prjstatus.equals("f") ? "5"
+								: prjstatus);
+						atm.setPrrstatus(prrstatus.equals("f") ? "5"
+								: prrstatus);
+						atm.setReaderstatus(readerstatus.equals("f") ? "1"
+								: readerstatus);
+						atm.setDepstatus(depstatus.equals("f") ? "1"
+								: depstatus);
+						atm.setCdmstatus(cdmstatus.equals("f") ? "1"
+								: cdmstatus);
+						atm.setBox(box);
+						atm.setLinestatus("0");
+						int moneySize = 0;
+						int moneySize_i = 0;
+						for (int i = 0; i < box.length(); i += 8) {
+							String type_1 = box.substring(0 + i, 1 + i);
+							String type = box.substring(1 + i, 2 + i);
+							if (type_1.equals("o") && type.equals("2"))
+								moneySize += Integer.parseInt(box.substring(
+										i + 4, i + 8));
+							if (type_1.equals("i") && type.equals("1"))
+								moneySize_i += Integer.parseInt(box.substring(
+										i + 4, i + 8));
+						}
+						atm.setPartrmb(String.valueOf(moneySize));
+						atm.setIp(socket.getInetAddress().toString().substring(
+								1));
+						atm.setDepormb(String.valueOf(moneySize_i));
+						// logger.info("状态信息：" + message);
+						// 将状态信息压入短信队列
+						// WorkManager.setInstantSms(atm);
+						// 先判断报文是否有更新
+						Atm changeAtm = DataManager.getChangeStatusAtm(atm);
+						DataManager.saveOrUpdateAtm(atm);
+						changeAtm.setAtmid(atm.getAtmid());
+						changeAtm.setLinestatus("0");
+						DataManager.setAtmHistory(changeAtm);
+					}
+				}
+			} catch (Exception e) {
+				logger.error(e.getLocalizedMessage(), e);
+			}
+		}
+	}
+
+	@Override
+	public void run() {
+		setMsgToDb();
+	}
+}
